@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乡居设计通 · 打个电话，给咱农村老家出张房草图</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ 顶部品牌 ============ -->
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="34" height="34"><path d="M6 20 L20 8 L34 20" fill="none" stroke="#f3e3c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="11" y="20" width="18" height="13" fill="none" stroke="#f3e3c6" stroke-width="2.4"/><rect x="17.5" y="25" width="5" height="8" fill="#d9952b"/></svg>
+    </div>
+    <div>
+      <h1>乡居设计通</h1>
+      <p>打个电话说方言，给咱农村老家出张房草图</p>
+    </div>
+  </div>
+  <div class="header-badges">
+    <span class="badge badge-warm">人工客服 · 方言陪聊</span>
+    <span class="badge">降雨/抗震自动查</span>
+    <span class="badge">50万预算自动配</span>
+    <button id="settingsBtn" class="settings-btn" title="大模型设置">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M19.14 12.94c.04-.3.06-.62.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.44.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94 0 .31.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.03.68 1.62.94l.36 2.54c.03.24.23.41.47.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z" fill="currentColor"/></svg>
+      大模型设置 <i id="llmDot" class="llm-dot off"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ======== 大模型设置弹窗 ======== -->
+<div id="settingsModal" class="modal-mask hidden">
+  <div class="modal">
+    <div class="modal-h">
+      <h3>接入真实大模型（DeepSeek 兼容接口）</h3>
+      <button id="settingsClose" class="modal-x" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-b">
+      <label class="field">
+        <span>服务商预设</span>
+        <select id="llmPreset"></select>
+      </label>
+      <label class="field">
+        <span>接口地址 base_url</span>
+        <input id="llmBase" type="text" placeholder="https://api.deepseek.com">
+      </label>
+      <label class="field">
+        <span>模型名 model</span>
+        <input id="llmModel" type="text" placeholder="deepseek-chat" list="modelList">
+        <datalist id="modelList"></datalist>
+      </label>
+      <label class="field">
+        <span id="llmKeyLabel">API Key（只存在本机浏览器 localStorage，不写入代码、不上传）</span>
+        <input id="llmKey" type="password" placeholder="sk-...">
+      </label>
+      <p id="llmPresetHint" class="preset-hint"></p>
+      <div class="modal-actions">
+        <button id="llmTest" class="btn-ghost">测试连接</button>
+        <button id="llmSave" class="btn-primary">保存</button>
+      </div>
+      <p id="llmTestResult" class="test-result"></p>
+      <p class="modal-note">推荐用第一个“Worker 代理”：DeepSeek Key 保存在服务端，网页端不持密钥，也不会有跨域问题。部署只需在 proxy-worker 目录执行 <b>npx wrangler deploy</b> 再 <b>npx wrangler secret put DEEPSEEK_API_KEY</b>。临时演示可用第二个本地 Python 代理；不配置也能点“演示话术模式”。</p>
+    </div>
+  </div>
+</div>
+
+<main class="layout">
+
+  <!-- ============ 左：手机（大妈端） ============ -->
+  <section class="phone-col">
+    <div class="phone">
+      <div class="phone-ear"></div>
+
+      <!-- 拨号屏 -->
+      <div id="dialScreen" class="dial-screen">
+        <div class="dial-agent">
+          <div class="avatar avatar-lg">居</div>
+          <h2>盖房顾问 · 小居</h2>
+          <p>乡居设计通公益热线 <b>400-000-XXXX（演示）</b></p>
+        </div>
+        <div class="dial-tips">
+          <p>接电话的是人，不是机器录音。</p>
+          <p>您用家乡话慢慢说，她一句一句问：</p>
+          <ul>
+            <li>盖几层？宅基地多大？</li>
+            <li>在哪个省？预算多少？</li>
+            <li>几间睡房？灶屋大小？</li>
+            <li>猪圈鸡圈、堂屋院坝要不要？</li>
+          </ul>
+          <p class="dial-tip-note">聊完自动给您出初步房草图和造价单子。</p>
+        </div>
+        <div class="mode-switch" role="tablist" aria-label="客服模式">
+          <button id="modeAi" class="mode-opt">AI 真人大脑</button>
+          <button id="modeScript" class="mode-opt active">演示话术（离线）</button>
+        </div>
+        <p id="modeHint" class="mode-hint">演示话术模式：固定剧本，无需联网和 Key，路演最稳</p>
+        <button id="startCallBtn" class="call-btn" aria-label="拨打电话">
+          <svg viewBox="0 0 24 24" width="34" height="34"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.2 2.2z" fill="#fff"/></svg>
+          点这里，拨通热线
+        </button>
+      </div>
+
+      <!-- 通话屏 -->
+      <div id="callScreen" class="call-screen hidden">
+        <div class="call-top">
+          <div class="call-top-l">
+            <span class="live-dot"></span>
+            <span id="callTimer">通话中 00:00</span>
+          </div>
+          <button id="hangupBtn" class="hangup-btn" aria-label="挂断">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 9c-1.6 0-3.2.25-4.6.72v3.1c0 .4-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.21a1 1 0 0 1 0-1.41C3.15 8.75 7.36 6.5 12 6.5s8.85 2.25 11.71 5.3a1 1 0 0 1 0 1.41l-2.48 2.44c-.18.18-.43.29-.71.29-.27 0-.52-.1-.7-.28-.79-.73-1.68-1.36-2.66-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.2 9.25 13.6 9 12 9z" fill="#fff" transform="rotate(135 12 12)"/></svg>
+            挂断
+          </button>
+        </div>
+        <div class="agent-row">
+          <div class="avatar">居</div>
+          <div>
+            <div class="agent-name">人工客服 · 小居 <i id="aiBadge" class="ai-badge hidden">AI 在线 · <span id="aiModelName"></span></i></div>
+            <div class="agent-sub">说慢些、用方言也听得懂</div>
+          </div>
+        </div>
+        <div id="transcript" class="transcript"></div>
+        <div id="chipBar" class="chip-bar"></div>
+        <div class="input-bar">
+          <button id="micBtn" class="mic-btn" title="按住说话（语音识别）" aria-label="语音输入">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" fill="currentColor"/><path d="M17 11a1 1 0 1 0-2 0 3 3 0 0 1-6 0 1 1 0 1 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.1A5 5 0 0 0 17 11z" fill="currentColor"/></svg>
+          </button>
+          <input id="textInput" type="text" placeholder="不会点？直接打字，比如“两层、一百二十平”" autocomplete="off">
+          <button id="sendBtn" class="send-btn">发送</button>
+        </div>
+      </div>
+    </div>
+    <p id="speechStatus" class="speech-note">演示支持：点选回答 / 打字 / 麦克风语音；客服话术会自动朗读</p>
+  </section>
+
+  <!-- ============ 右：坐席工作台（需求实时提取） ============ -->
+  <aside class="desk-col">
+    <div class="desk-card">
+      <div class="desk-card-h">
+        <h3>坐席工作台 · 需求自动提取</h3>
+        <span class="desk-tag">通话中实时填写</span>
+      </div>
+      <div id="slotRows" class="slot-rows"></div>
+    </div>
+    <div id="climateCard" class="desk-card climate-card hidden"></div>
+    <div class="desk-card dict-card">
+      <div class="desk-card-h"><h3>方言理解词库</h3><span class="desk-tag">可持续扩充</span></div>
+      <p class="dict-line">已内置 <b>32+</b> 条川渝 / 中原 / 东北 / 湘赣 / 粤语 / 西北口语词例，听到即转标准意图（如 <em>灶屋→厨房、茅司→厕所、坝子→院子、猪栏→猪圈</em>）。</p>
+      <p class="dict-line sub">正式版：电话语音网关 + 方言 ASR（讯飞/阿里）+ 人工坐席接管，本演示为本地规则模拟。</p>
+    </div>
+  </aside>
+</main>
+
+<!-- ============ 设计结果 ============ -->
+<section id="designSection" class="design-section hidden">
+  <div class="design-head">
+    <h2>大娘，您家新房的初步方案出来喽</h2>
+    <div class="design-actions">
+      <button id="redialBtn" class="btn-ghost">重新拨打改需求</button>
+      <button id="printBtn" class="btn-primary">打印 / 存PDF</button>
+    </div>
+  </div>
+  <div id="summaryStrip" class="summary-strip"></div>
+
+  <div class="design-tabs">
+    <button id="tabPlan" class="design-tab-btn active">房间平面图</button>
+    <button id="tabElevation" class="design-tab-btn">立面与结构</button>
+    <button id="tabBudget" class="design-tab-btn">造价估算</button>
+    <button id="tabNotes" class="design-tab-btn">设计说明（含地质气候）</button>
+  </div>
+
+  <div id="panelPlan" class="design-panel">
+    <div id="planTabs" class="floor-tabs"></div>
+    <div id="planPanel" class="plan-canvas"></div>
+  </div>
+  <div id="panelElevation" class="design-panel hidden plan-canvas"></div>
+  <div id="panelBudget" class="design-panel hidden plan-canvas"></div>
+  <div id="panelNotes" class="design-panel hidden plan-canvas"></div>
+</section>
+
+<footer class="site-footer">
+  <p>乡居设计通 · 黑客松演示原型　|　气候/抗震/冻深数据为<b>省级经验参考值</b>，图纸为沟通用初步意向方案；正式建房须办理审批、委托持证设计与地勘。</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="llm.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

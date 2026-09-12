@@ -1,0 +1,2209 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乡居设计通 · 打个电话，给咱农村老家出张房草图</title>
+<style>
+/* ============ 乡居设计通 · 样式（乡土信任风 / 适老化大字号） ============ */
+:root {
+  --brick: #b4482e;
+  --brick-d: #8f3520;
+  --gold: #d9952b;
+  --green: #4f7a52;
+  --ink: #2e2820;
+  --ink-2: #5a4d38;
+  --paper: #faf5ec;
+  --card: #fffdf8;
+  --line: #e7dcc8;
+  --line-2: #d9c9a8;
+  --blue: #3f6b8a;
+  --r-lg: 18px;
+  --r-md: 12px;
+  --shadow: 0 10px 30px rgba(90, 60, 30, .10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  background:
+    radial-gradient(1100px 500px at 80% -10%, rgba(217,149,43,.10), transparent 60%),
+    radial-gradient(900px 420px at -10% 0%, rgba(180,72,46,.08), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+.hidden { display: none !important; }
+h1, h2, h3 { font-family: "STSong", "SimSun", "Songti SC", serif; letter-spacing: .04em; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ============ 顶部 ============ */
+.site-header {
+  max-width: 1180px; margin: 0 auto; padding: 26px 24px 18px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-mark {
+  width: 54px; height: 54px; border-radius: 14px;
+  background: linear-gradient(145deg, var(--brick), var(--brick-d));
+  display: grid; place-items: center; box-shadow: var(--shadow);
+}
+.brand h1 { font-size: 28px; color: var(--brick-d); }
+.brand p { color: var(--ink-2); font-size: 14px; }
+.header-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+.badge {
+  font-size: 13px; color: var(--ink-2); background: var(--card);
+  border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+}
+.badge-warm { background: #f7e8d4; border-color: #e8cfa6; color: var(--brick-d); font-weight: 600; }
+
+/* ============ 主布局 ============ */
+.layout {
+  max-width: 1180px; margin: 0 auto; padding: 10px 24px 30px;
+  display: grid; grid-template-columns: 420px 1fr; gap: 26px; align-items: start;
+}
+
+/* ============ 手机 ============ */
+.phone-col { position: sticky; top: 14px; }
+.phone {
+  background: #2e2820; border-radius: 42px; padding: 14px 12px;
+  box-shadow: 0 24px 60px rgba(50,30,10,.28), inset 0 0 0 2px #4a4137;
+  position: relative;
+}
+.phone-ear {
+  width: 64px; height: 6px; border-radius: 4px; background: #564d42;
+  margin: 0 auto 10px;
+}
+.dial-screen, .call-screen {
+  background: linear-gradient(180deg, #fdf8ee 0%, #f7eddd 100%);
+  border-radius: 30px; min-height: 640px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+/* 拨号屏 */
+.dial-screen { padding: 34px 26px 28px; align-items: center; text-align: center; }
+.dial-agent { margin-top: 8px; }
+.avatar {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--gold), #c47e1c);
+  color: #fff; display: grid; place-items: center;
+  font-size: 24px; font-weight: 700; font-family: "STSong", serif;
+  box-shadow: 0 6px 14px rgba(180,110,30,.35); flex: none;
+}
+.avatar-lg { width: 96px; height: 96px; font-size: 44px; margin: 0 auto 14px; border-radius: 28px; }
+.dial-agent h2 { font-size: 24px; color: var(--ink); margin-bottom: 4px; }
+.dial-agent p { font-size: 14px; color: var(--ink-2); }
+.dial-tips {
+  margin: 24px 0; padding: 20px 22px; background: var(--card);
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  text-align: left; font-size: 16px; color: var(--ink-2); width: 100%;
+}
+.dial-tips ul { margin: 10px 0 10px 22px; }
+.dial-tips li { margin: 4px 0; }
+.dial-tip-note { color: var(--brick-d); font-weight: 600; margin-top: 8px; font-size: 15px; }
+.call-btn {
+  margin-top: auto;
+  width: 100%; border: none; border-radius: 999px;
+  background: linear-gradient(145deg, #4f9c5d, var(--green));
+  color: #fff; font-size: 21px; font-weight: 700; padding: 18px;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  box-shadow: 0 10px 22px rgba(60,120,70,.35);
+  transition: transform .12s;
+}
+.call-btn:active { transform: scale(.97); }
+
+/* 通话屏 */
+.call-screen { padding: 0; }
+.call-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; background: var(--brick-d); color: #fff;
+}
+.call-top-l { display: flex; align-items: center; gap: 8px; font-size: 15px; }
+.live-dot { width: 9px; height: 9px; border-radius: 50%; background: #8ff0a4; box-shadow: 0 0 0 0 rgba(143,240,164,.8); animation: pulse 1.6s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 8px rgba(143,240,164,0); } 100% { box-shadow: 0 0 0 0 rgba(143,240,164,0); } }
+.hangup-btn {
+  border: none; background: rgba(255,255,255,.16); color: #fff;
+  border-radius: 999px; padding: 8px 14px; font-size: 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+.agent-row { display: flex; gap: 12px; align-items: center; padding: 14px 20px 6px; }
+.agent-name { font-weight: 700; font-size: 17px; }
+.agent-sub { font-size: 12.5px; color: var(--ink-2); }
+
+.transcript {
+  flex: 1; overflow-y: auto; padding: 12px 18px 8px;
+  display: flex; flex-direction: column; gap: 12px; min-height: 330px; max-height: 360px;
+}
+.bubble { max-width: 86%; padding: 12px 15px; border-radius: 16px; font-size: 17.5px; line-height: 1.55; }
+.bubble.agent {
+  background: var(--card); border: 1px solid var(--line);
+  border-top-left-radius: 4px; align-self: flex-start;
+}
+.bubble.user {
+  background: #dceadf; border: 1px solid #bcd6c2;
+  border-top-right-radius: 4px; align-self: flex-end;
+}
+.dialect-tag {
+  margin-top: 7px; padding-top: 6px; border-top: 1px dashed #9ab5a3;
+  font-size: 12px; color: var(--brick-d); font-weight: 600;
+}
+.typing-row { align-self: flex-start; background: var(--card); border: 1px solid var(--line);
+  padding: 14px 18px; border-radius: 16px; border-top-left-radius: 4px; display: flex; gap: 5px; }
+.typing-row .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-2); animation: blink 1.2s infinite; }
+.typing-row .dot:nth-child(2) { animation-delay: .2s; }
+.typing-row .dot:nth-child(3) { animation-delay: .4s; }
+@keyframes blink { 0%, 60%, 100% { opacity: .3; } 30% { opacity: 1; } }
+
+.chip-bar {
+  display: flex; gap: 9px; overflow-x: auto; padding: 10px 18px;
+  border-top: 1px solid var(--line);
+}
+.chip-bar::-webkit-scrollbar { height: 4px; }
+.chip {
+  flex: none; border: 2px solid var(--brick); color: var(--brick-d);
+  background: #fdf2e7; border-radius: 999px; padding: 11px 18px;
+  font-size: 16.5px; font-weight: 600; transition: transform .1s;
+}
+.chip:active { transform: scale(.95); }
+.input-bar { display: flex; gap: 8px; padding: 12px 16px 18px; border-top: 1px solid var(--line); background: #fffaf0; }
+.mic-btn {
+  flex: none; width: 48px; height: 48px; border-radius: 50%;
+  border: 2px solid var(--line-2); background: var(--card); color: var(--blue);
+  display: grid; place-items: center;
+}
+.mic-btn.recording { background: var(--brick); border-color: var(--brick-d); color: #fff; animation: pulse-red 1.2s infinite; }
+@keyframes pulse-red { 70% { box-shadow: 0 0 0 7px rgba(180,72,46,.18); } 100% { box-shadow: 0 0 0 0 rgba(180,72,46,0); } }
+.mic-btn.disabled { opacity: .35; cursor: not-allowed; }
+#textInput {
+  flex: 1; border: 2px solid var(--line); border-radius: 999px;
+  padding: 0 18px; font-size: 15.5px; background: #fff; min-width: 0;
+}
+#textInput:focus { outline: none; border-color: var(--gold); }
+.send-btn {
+  flex: none; border: none; border-radius: 999px; background: var(--brick);
+  color: #fff; font-size: 15px; font-weight: 700; padding: 0 18px;
+}
+.speech-note { font-size: 12.5px; color: var(--ink-2); text-align: center; margin-top: 12px; padding: 0 8px; }
+
+/* ============ 工作台 ============ */
+.desk-col { display: flex; flex-direction: column; gap: 18px; }
+.desk-card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 20px 22px; box-shadow: var(--shadow);
+}
+.desk-card-h { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.desk-card-h h3 { font-size: 18px; color: var(--brick-d); }
+.desk-tag { font-size: 12px; color: #fff; background: var(--green); border-radius: 999px; padding: 3px 10px; }
+.slot-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.slot-row {
+  border: 1px dashed var(--line-2); border-radius: var(--r-md);
+  padding: 9px 12px; display: flex; flex-direction: column; gap: 1px;
+  background: #fdfaf3;
+}
+.slot-row.filled { border-style: solid; border-color: #d8c8a4; background: #f8f0e0; }
+.slot-label { font-size: 12.5px; color: #8a7a5e; }
+.slot-value { font-size: 15.5px; font-weight: 600; color: var(--ink); min-height: 22px; }
+.climate-card { border-left: 6px solid var(--blue); }
+.climate-title { font-weight: 700; color: var(--blue); margin-bottom: 10px; font-size: 16px; }
+.climate-row { display: grid; grid-template-columns: 76px auto 1fr; gap: 8px; align-items: baseline; margin: 7px 0; font-size: 14px; }
+.climate-row span { color: #8a7a5e; }
+.climate-row b { color: var(--ink); }
+.climate-row small { color: var(--ink-2); grid-column: 2 / 4; }
+.meter { height: 10px; border-radius: 6px; background: #e7dcc8; overflow: hidden; margin: 2px 0 8px; }
+.meter i { display: block; height: 100%; background: linear-gradient(90deg, #7fb2d4, var(--blue)); border-radius: 6px; }
+.dict-card h3 { font-size: 16px; }
+.dict-line { font-size: 13.5px; color: var(--ink-2); }
+.dict-line b { color: var(--brick-d); }
+.dict-line em { color: var(--green); font-style: normal; font-weight: 600; }
+.dict-line.sub { margin-top: 8px; font-size: 12.5px; color: #8a7a5e; }
+
+/* ============ 设计结果 ============ */
+.design-section {
+  max-width: 1180px; margin: 8px auto 0; padding: 30px 24px 40px;
+  background: linear-gradient(180deg, rgba(255,253,248,.75), rgba(250,245,236,.35));
+  border-top: 1px solid var(--line);
+}
+.design-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.design-head h2 { font-size: 26px; color: var(--brick-d); }
+.design-actions { display: flex; gap: 10px; }
+.btn-primary, .btn-ghost { border-radius: 999px; padding: 10px 20px; font-size: 15px; font-weight: 600; }
+.btn-primary { background: var(--brick); color: #fff; border: 1px solid var(--brick-d); }
+.btn-ghost { background: transparent; color: var(--ink-2); border: 1px solid var(--line-2); }
+.summary-strip { display: flex; flex-wrap: wrap; gap: 9px; margin: 16px 0 22px; }
+.sum-chip {
+  background: #f7e8d4; border: 1px solid #e8cfa6; color: var(--brick-d);
+  border-radius: 999px; padding: 7px 16px; font-size: 14.5px; font-weight: 600;
+}
+.design-tabs { display: flex; gap: 8px; border-bottom: 2px solid var(--line); flex-wrap: wrap; }
+.design-tab-btn {
+  border: none; background: none; padding: 12px 20px; font-size: 16.5px;
+  color: var(--ink-2); border-bottom: 3px solid transparent; margin-bottom: -2px; font-weight: 600;
+}
+.design-tab-btn.active { color: var(--brick-d); border-bottom-color: var(--brick); }
+.design-panel { animation: fade .3s; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.floor-tabs { display: flex; gap: 8px; margin: 18px 0 10px; flex-wrap: wrap; }
+.floor-tabs .tab-btn {
+  border: 1.5px solid var(--line-2); background: var(--card); border-radius: 999px;
+  padding: 7px 18px; font-size: 14.5px; color: var(--ink-2);
+}
+.floor-tabs .tab-btn.active { background: var(--green); border-color: var(--green); color: #fff; font-weight: 700; }
+.plan-canvas {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 18px; box-shadow: var(--shadow); margin-top: 12px;
+}
+.plan-svg { width: 100%; height: auto; display: block; }
+
+/* 预算 */
+.budget-total {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: linear-gradient(145deg, #f7e8d4, #f3ddba); border: 1px solid #e8cfa6;
+  border-radius: var(--r-lg); padding: 18px 24px; margin: 18px 0;
+}
+.budget-total b { font-size: 40px; color: var(--brick-d); font-family: Georgia, serif; }
+.budget-total span { font-size: 15px; color: var(--ink-2); margin-left: 6px; }
+.budget-pair { font-size: 15px; color: var(--ink-2); font-weight: 600; }
+.budget-bars { display: flex; flex-direction: column; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: 250px 1fr 72px; gap: 12px; align-items: center; }
+.bar-label { font-size: 14px; color: var(--ink); }
+.bar-track { height: 22px; background: #efe6d3; border-radius: 6px; overflow: hidden; }
+.bar-track i { display: block; height: 100%; border-radius: 6px;
+  background: linear-gradient(90deg, #e0b15f, var(--gold)); }
+.bar-num { text-align: right; font-weight: 700; color: var(--brick-d); font-size: 15px; }
+.budget-ok { margin-top: 18px; padding: 14px 18px; border-radius: var(--r-md);
+  background: #e4f0e6; border: 1px solid #b7d4bd; color: #2f5e3a; font-weight: 600; }
+.budget-warn { margin-top: 18px; padding: 14px 18px; border-radius: var(--r-md);
+  background: #fbe3dc; border: 1px solid #e6b3a4; color: var(--brick-d); font-weight: 600; }
+
+/* 说明 */
+.notes-list { list-style: none; margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.notes-list li {
+  background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--gold);
+  border-radius: var(--r-md); padding: 14px 16px;
+}
+.notes-list b { color: var(--brick-d); font-size: 15.5px; }
+.notes-list p { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+.notes-list .note-disclaimer { grid-column: 1 / -1; border-left-color: var(--brick); background: #fdf1ec; }
+
+.site-footer {
+  max-width: 1180px; margin: 0 auto; padding: 22px 24px 40px;
+  color: #8a7a5e; font-size: 13px; text-align: center;
+}
+
+/* ============ 大模型设置按钮 / 状态点 ============ */
+.settings-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  border: 1px solid var(--line-2); background: var(--card);
+  color: var(--ink-2); border-radius: 999px; padding: 8px 15px; font-size: 14px; font-weight: 600;
+}
+.settings-btn:hover { border-color: var(--gold); color: var(--brick-d); }
+.llm-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.llm-dot.on { background: #4f9c5d; box-shadow: 0 0 0 3px rgba(79,156,93,.18); }
+.llm-dot.off { background: #c3b59a; }
+
+/* ============ 设置弹窗 ============ */
+.modal-mask {
+  position: fixed; inset: 0; background: rgba(46,40,32,.45);
+  display: grid; place-items: center; z-index: 50; padding: 18px;
+}
+.modal {
+  background: var(--card); border-radius: 20px; width: min(560px, 100%);
+  box-shadow: 0 30px 80px rgba(40,25,10,.35); overflow: hidden;
+}
+.modal-h {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 22px; background: linear-gradient(145deg, var(--brick), var(--brick-d)); color: #fff;
+}
+.modal-h h3 { font-size: 18px; }
+.modal-x { border: none; background: rgba(255,255,255,.2); color: #fff; width: 32px; height: 32px;
+  border-radius: 50%; font-size: 20px; line-height: 1; }
+.modal-b { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field span { font-size: 13.5px; color: var(--ink-2); font-weight: 600; }
+.field input, .field select {
+  border: 1.5px solid var(--line-2); border-radius: 10px; padding: 11px 13px;
+  font-size: 15px; font-family: inherit; background: #fff; color: var(--ink);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--gold); }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.test-result { font-size: 13.5px; min-height: 18px; }
+.test-result.ok { color: var(--green); font-weight: 600; }
+.test-result.warn { color: var(--brick-d); font-weight: 600; }
+.modal-note { font-size: 12.5px; color: #8a7a5e; line-height: 1.7;
+  border-top: 1px dashed var(--line-2); padding-top: 12px; }
+.preset-hint { font-size: 12.5px; color: var(--blue); background: #eef4f8;
+  border-radius: 8px; padding: 8px 11px; min-height: 16px; line-height: 1.6; }
+.preset-hint:empty { display: none; }
+
+/* ============ 模式切换 ============ */
+.mode-switch {
+  display: flex; background: #efe4cf; border-radius: 999px; padding: 4px;
+  width: 100%; gap: 4px; margin-top: 4px;
+}
+.mode-opt {
+  flex: 1; border: none; background: transparent; border-radius: 999px;
+  padding: 11px 6px; font-size: 15.5px; font-weight: 700; color: var(--ink-2);
+}
+.mode-opt.active { background: var(--brick); color: #fff; box-shadow: 0 4px 12px rgba(180,72,46,.3); }
+.mode-hint { font-size: 13px; color: #8a7a5e; text-align: center; min-height: 20px; }
+.mode-hint.ok { color: var(--green); font-weight: 600; }
+.mode-hint.warn { color: var(--brick-d); font-weight: 600; }
+
+.ai-badge {
+  font-style: normal; font-size: 11.5px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, #4f9c5d, #3a7a47); border-radius: 999px;
+  padding: 2px 9px; margin-left: 6px; vertical-align: middle;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width: 960px) {
+  .layout { grid-template-columns: 1fr; }
+  .phone-col { position: static; display: flex; flex-direction: column; align-items: center; }
+  .phone { width: 100%; max-width: 430px; }
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-num { text-align: left; }
+  .notes-list { grid-template-columns: 1fr; }
+  .slot-rows { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .site-header { padding: 18px 16px 10px; }
+  .layout { padding: 10px 12px 24px; }
+  .brand h1 { font-size: 23px; }
+  .bubble { font-size: 16.5px; }
+}
+
+/* ============ 打印 ============ */
+@media print {
+  .site-header, .phone-col, .design-actions, .design-tabs, .floor-tabs, .site-footer, .speech-note { display: none !important; }
+  .layout { display: block; }
+  .design-section { border: none; padding: 0; max-width: 100%; }
+  .design-panel.hidden { display: block !important; }
+  .desk-card { box-shadow: none; break-inside: avoid; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============ 顶部品牌 ============ -->
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="34" height="34"><path d="M6 20 L20 8 L34 20" fill="none" stroke="#f3e3c6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="11" y="20" width="18" height="13" fill="none" stroke="#f3e3c6" stroke-width="2.4"/><rect x="17.5" y="25" width="5" height="8" fill="#d9952b"/></svg>
+    </div>
+    <div>
+      <h1>乡居设计通</h1>
+      <p>打个电话说方言，给咱农村老家出张房草图</p>
+    </div>
+  </div>
+  <div class="header-badges">
+    <span class="badge badge-warm">人工客服 · 方言陪聊</span>
+    <span class="badge">降雨/抗震自动查</span>
+    <span class="badge">50万预算自动配</span>
+    <button id="settingsBtn" class="settings-btn" title="大模型设置">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path d="M19.14 12.94c.04-.3.06-.62.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84c-.24 0-.44.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94 0 .31.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.03.68 1.62.94l.36 2.54c.03.24.23.41.47.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z" fill="currentColor"/></svg>
+      大模型设置 <i id="llmDot" class="llm-dot off"></i>
+    </button>
+  </div>
+</header>
+
+<!-- ======== 大模型设置弹窗 ======== -->
+<div id="settingsModal" class="modal-mask hidden">
+  <div class="modal">
+    <div class="modal-h">
+      <h3>接入真实大模型（DeepSeek 兼容接口）</h3>
+      <button id="settingsClose" class="modal-x" aria-label="关闭">×</button>
+    </div>
+    <div class="modal-b">
+      <label class="field">
+        <span>服务商预设</span>
+        <select id="llmPreset"></select>
+      </label>
+      <label class="field">
+        <span>接口地址 base_url</span>
+        <input id="llmBase" type="text" placeholder="https://api.deepseek.com">
+      </label>
+      <label class="field">
+        <span>模型名 model</span>
+        <input id="llmModel" type="text" placeholder="deepseek-chat" list="modelList">
+        <datalist id="modelList"></datalist>
+      </label>
+      <label class="field">
+        <span id="llmKeyLabel">API Key（只存在本机浏览器 localStorage，不写入代码、不上传）</span>
+        <input id="llmKey" type="password" placeholder="sk-...">
+      </label>
+      <p id="llmPresetHint" class="preset-hint"></p>
+      <div class="modal-actions">
+        <button id="llmTest" class="btn-ghost">测试连接</button>
+        <button id="llmSave" class="btn-primary">保存</button>
+      </div>
+      <p id="llmTestResult" class="test-result"></p>
+      <p class="modal-note">推荐用第一个“Worker 代理”：DeepSeek Key 保存在服务端，网页端不持密钥，也不会有跨域问题。部署只需在 proxy-worker 目录执行 <b>npx wrangler deploy</b> 再 <b>npx wrangler secret put DEEPSEEK_API_KEY</b>。临时演示可用第二个本地 Python 代理；不配置也能点“演示话术模式”。</p>
+    </div>
+  </div>
+</div>
+
+<main class="layout">
+
+  <!-- ============ 左：手机（大妈端） ============ -->
+  <section class="phone-col">
+    <div class="phone">
+      <div class="phone-ear"></div>
+
+      <!-- 拨号屏 -->
+      <div id="dialScreen" class="dial-screen">
+        <div class="dial-agent">
+          <div class="avatar avatar-lg">居</div>
+          <h2>盖房顾问 · 小居</h2>
+          <p>乡居设计通公益热线 <b>400-000-XXXX（演示）</b></p>
+        </div>
+        <div class="dial-tips">
+          <p>接电话的是人，不是机器录音。</p>
+          <p>您用家乡话慢慢说，她一句一句问：</p>
+          <ul>
+            <li>盖几层？宅基地多大？</li>
+            <li>在哪个省？预算多少？</li>
+            <li>几间睡房？灶屋大小？</li>
+            <li>猪圈鸡圈、堂屋院坝要不要？</li>
+          </ul>
+          <p class="dial-tip-note">聊完自动给您出初步房草图和造价单子。</p>
+        </div>
+        <div class="mode-switch" role="tablist" aria-label="客服模式">
+          <button id="modeAi" class="mode-opt">AI 真人大脑</button>
+          <button id="modeScript" class="mode-opt active">演示话术（离线）</button>
+        </div>
+        <p id="modeHint" class="mode-hint">演示话术模式：固定剧本，无需联网和 Key，路演最稳</p>
+        <button id="startCallBtn" class="call-btn" aria-label="拨打电话">
+          <svg viewBox="0 0 24 24" width="34" height="34"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1l-2.2 2.2z" fill="#fff"/></svg>
+          点这里，拨通热线
+        </button>
+      </div>
+
+      <!-- 通话屏 -->
+      <div id="callScreen" class="call-screen hidden">
+        <div class="call-top">
+          <div class="call-top-l">
+            <span class="live-dot"></span>
+            <span id="callTimer">通话中 00:00</span>
+          </div>
+          <button id="hangupBtn" class="hangup-btn" aria-label="挂断">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 9c-1.6 0-3.2.25-4.6.72v3.1c0 .4-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.21a1 1 0 0 1 0-1.41C3.15 8.75 7.36 6.5 12 6.5s8.85 2.25 11.71 5.3a1 1 0 0 1 0 1.41l-2.48 2.44c-.18.18-.43.29-.71.29-.27 0-.52-.1-.7-.28-.79-.73-1.68-1.36-2.66-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.2 9.25 13.6 9 12 9z" fill="#fff" transform="rotate(135 12 12)"/></svg>
+            挂断
+          </button>
+        </div>
+        <div class="agent-row">
+          <div class="avatar">居</div>
+          <div>
+            <div class="agent-name">人工客服 · 小居 <i id="aiBadge" class="ai-badge hidden">AI 在线 · <span id="aiModelName"></span></i></div>
+            <div class="agent-sub">说慢些、用方言也听得懂</div>
+          </div>
+        </div>
+        <div id="transcript" class="transcript"></div>
+        <div id="chipBar" class="chip-bar"></div>
+        <div class="input-bar">
+          <button id="micBtn" class="mic-btn" title="按住说话（语音识别）" aria-label="语音输入">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z" fill="currentColor"/><path d="M17 11a1 1 0 1 0-2 0 3 3 0 0 1-6 0 1 1 0 1 0-2 0 5 5 0 0 0 4 4.9V19H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-3.1A5 5 0 0 0 17 11z" fill="currentColor"/></svg>
+          </button>
+          <input id="textInput" type="text" placeholder="不会点？直接打字，比如“两层、一百二十平”" autocomplete="off">
+          <button id="sendBtn" class="send-btn">发送</button>
+        </div>
+      </div>
+    </div>
+    <p id="speechStatus" class="speech-note">演示支持：点选回答 / 打字 / 麦克风语音；客服话术会自动朗读</p>
+  </section>
+
+  <!-- ============ 右：坐席工作台（需求实时提取） ============ -->
+  <aside class="desk-col">
+    <div class="desk-card">
+      <div class="desk-card-h">
+        <h3>坐席工作台 · 需求自动提取</h3>
+        <span class="desk-tag">通话中实时填写</span>
+      </div>
+      <div id="slotRows" class="slot-rows"></div>
+    </div>
+    <div id="climateCard" class="desk-card climate-card hidden"></div>
+    <div class="desk-card dict-card">
+      <div class="desk-card-h"><h3>方言理解词库</h3><span class="desk-tag">可持续扩充</span></div>
+      <p class="dict-line">已内置 <b>32+</b> 条川渝 / 中原 / 东北 / 湘赣 / 粤语 / 西北口语词例，听到即转标准意图（如 <em>灶屋→厨房、茅司→厕所、坝子→院子、猪栏→猪圈</em>）。</p>
+      <p class="dict-line sub">正式版：电话语音网关 + 方言 ASR（讯飞/阿里）+ 人工坐席接管，本演示为本地规则模拟。</p>
+    </div>
+  </aside>
+</main>
+
+<!-- ============ 设计结果 ============ -->
+<section id="designSection" class="design-section hidden">
+  <div class="design-head">
+    <h2>大娘，您家新房的初步方案出来喽</h2>
+    <div class="design-actions">
+      <button id="redialBtn" class="btn-ghost">重新拨打改需求</button>
+      <button id="printBtn" class="btn-primary">打印 / 存PDF</button>
+    </div>
+  </div>
+  <div id="summaryStrip" class="summary-strip"></div>
+
+  <div class="design-tabs">
+    <button id="tabPlan" class="design-tab-btn active">房间平面图</button>
+    <button id="tabElevation" class="design-tab-btn">立面与结构</button>
+    <button id="tabBudget" class="design-tab-btn">造价估算</button>
+    <button id="tabNotes" class="design-tab-btn">设计说明（含地质气候）</button>
+  </div>
+
+  <div id="panelPlan" class="design-panel">
+    <div id="planTabs" class="floor-tabs"></div>
+    <div id="planPanel" class="plan-canvas"></div>
+  </div>
+  <div id="panelElevation" class="design-panel hidden plan-canvas"></div>
+  <div id="panelBudget" class="design-panel hidden plan-canvas"></div>
+  <div id="panelNotes" class="design-panel hidden plan-canvas"></div>
+</section>
+
+<footer class="site-footer">
+  <p>乡居设计通 · 黑客松演示原型　|　气候/抗震/冻深数据为<b>省级经验参考值</b>，图纸为沟通用初步意向方案；正式建房须办理审批、委托持证设计与地勘。</p>
+</footer>
+
+<script>
+/* ===== data.js (内联) ===== */
+/* ============================================================
+ * 乡居设计通 · 数据层
+ * 1) REGIONS    各省（区/市）气候地质参考值 + 方言区提示
+ * 2) DIALECT    方言口语词 → 普通话标准意图（最长匹配，命中展示）
+ * 3) RULES      降雨/抗震/冻土 → 房屋构造措施的映射规则
+ * 说明：表中数值为面向"初步沟通方案"的经验参考值，
+ *      正式施工图必须以当地地勘报告与现行规范为准。
+ * ============================================================ */
+
+/* ---------- 省级参考数据 ---------- */
+const REGIONS = {
+  '北京':   { rain: 580,  months: '7-8月', seis: 8, frost: 0.8, soil: '华北平原，粉质黏土',     dialect: '北方官话' },
+  '天津':   { rain: 560,  months: '7-8月', seis: 7, frost: 0.6, soil: '滨海软土、回填土多',     dialect: '北方官话' },
+  '河北':   { rain: 550,  months: '7-8月', seis: 7, frost: 0.8, soil: '平原黄土/山前碎石土',    dialect: '北方官话' },
+  '山西':   { rain: 500,  months: '7-8月', seis: 8, frost: 1.0, soil: '黄土台地，湿陷性黄土',   dialect: '晋语' },
+  '内蒙古': { rain: 280,  months: '7-8月', seis: 7, frost: 2.0, soil: '草原砂砾土/冻土',        dialect: '晋语/东北官话' },
+  '辽宁':   { rain: 680,  months: '7-8月', seis: 8, frost: 1.2, soil: '平原黏土、山坡碎石',     dialect: '东北官话' },
+  '吉林':   { rain: 620,  months: '7-8月', seis: 7, frost: 1.6, soil: '黑土、季节性冻土',       dialect: '东北官话' },
+  '黑龙江': { rain: 540,  months: '7-8月', seis: 7, frost: 2.0, soil: '黑土、深冻土',           dialect: '东北官话' },
+  '上海':   { rain: 1180, months: '6-9月', seis: 7, frost: 0,   soil: '长江三角洲软土、水位高', dialect: '吴语' },
+  '江苏':   { rain: 1000, months: '6-9月', seis: 7, frost: 0,   soil: '平原软土、河网密布',     dialect: '江淮官话/吴语' },
+  '浙江':   { rain: 1500, months: '5-9月', seis: 6, frost: 0,   soil: '丘陵红黏土/山岩',        dialect: '吴语' },
+  '安徽':   { rain: 1100, months: '6-8月', seis: 7, frost: 0,   soil: '平原黏土/皖南山地',      dialect: '江淮官话/赣语' },
+  '福建':   { rain: 1650, months: '5-9月', seis: 7, frost: 0,   soil: '沿海丘陵红土、台风区',   dialect: '闽语/客家话' },
+  '江西':   { rain: 1550, months: '4-9月', seis: 6, frost: 0,   soil: '丘陵红黏土、地下水位高', dialect: '赣语/客家话' },
+  '山东':   { rain: 680,  months: '7-8月', seis: 7, frost: 0.5, soil: '丘陵棕壤/平原淤土',      dialect: '北方官话' },
+  '河南':   { rain: 700,  months: '7-8月', seis: 7, frost: 0.5, soil: '黄淮冲积平原、湿陷性土', dialect: '中原官话' },
+  '湖北':   { rain: 1150, months: '5-8月', seis: 6, frost: 0,   soil: '江汉平原软土/鄂西山地',  dialect: '西南官话' },
+  '湖南':   { rain: 1400, months: '4-8月', seis: 6, frost: 0,   soil: '丘陵红黏土、多雨潮湿',   dialect: '湘语/西南官话' },
+  '广东':   { rain: 1750, months: '4-9月', seis: 7, frost: 0,   soil: '丘陵赤红壤、台风暴雨区', dialect: '粤语/客家话/潮汕话' },
+  '广西':   { rain: 1600, months: '5-9月', seis: 6, frost: 0,   soil: '岩溶(喀斯特)红黏土',     dialect: '粤语/壮语/西南官话' },
+  '海南':   { rain: 1900, months: '5-10月',seis: 8, frost: 0,   soil: '砖红壤、台风频发',       dialect: '海南话/粤语' },
+  '重庆':   { rain: 1150, months: '5-9月', seis: 6, frost: 0,   soil: '山城岩石边坡、红黏土',   dialect: '西南官话(重庆话)' },
+  '四川':   { rain: 1000, months: '6-9月', seis: 7, frost: 0,   soil: '盆地红黏土/川西高原',    dialect: '西南官话(四川话)' },
+  '贵州':   { rain: 1150, months: '5-9月', seis: 6, frost: 0,   soil: '喀斯特岩溶、山地斜坡',   dialect: '西南官话' },
+  '云南':   { rain: 1100, months: '6-10月',seis: 8, frost: 0,   soil: '高原红土、活动断裂带',   dialect: '西南官话/多民族语言' },
+  '西藏':   { rain: 450,  months: '7-8月', seis: 8, frost: 1.2, soil: '高原砂砾土、高烈度区',   dialect: '藏语' },
+  '陕西':   { rain: 600,  months: '7-9月', seis: 8, frost: 0.6, soil: '关中黄土/秦岭山地',      dialect: '中原官话/晋语' },
+  '甘肃':   { rain: 350,  months: '7-8月', seis: 8, frost: 1.2, soil: '黄土高原、湿陷性强',     dialect: '兰银官话/中原官话' },
+  '青海':   { rain: 380,  months: '7-8月', seis: 7, frost: 1.5, soil: '高原冻土、盐渍土',       dialect: '中原官话/藏语' },
+  '宁夏':   { rain: 280,  months: '7-8月', seis: 8, frost: 1.2, soil: '黄土、干旱少雨',         dialect: '兰银官话' },
+  '新疆':   { rain: 160,  months: '6-8月', seis: 8, frost: 1.5, soil: '戈壁砂砾土、干旱冻土',   dialect: '兰银官话/维吾尔语' }
+};
+
+/* 省份别名 / 简称 */
+const REGION_ALIAS = {
+  '川': '四川', '蜀': '四川', '四川话': '四川',
+  '渝': '重庆',
+  '豫': '河南', '河南话': '河南',
+  '湘': '湖南',
+  '赣': '江西',
+  '粤': '广东', '广东话': '广东',
+  '桂': '广西',
+  '陕': '陕西', '秦': '陕西',
+  '滇': '云南', '云': '云南',
+  '黔': '贵州', '贵': '贵州'
+};
+
+/* ---------- 方言/口语词典（命中后在气泡下打标签，可持续扩充） ---------- */
+/* 顺序即优先级：渲染前按词条长度降序匹配，避免"圈"误替换"猪栏圈"  */
+const DIALECT_WORDS = [
+  /* 川渝 / 西南官话 */
+  { word: '茅司', std: '厕所',   area: '川渝' },
+  { word: '茅厮', std: '厕所',   area: '川渝' },
+  { word: '灶屋', std: '厨房',   area: '川渝/湘' },
+  { word: '睡房', std: '卧室',   area: '川渝' },
+  { word: '坝坝', std: '院子',   area: '川渝' },
+  { word: '坝子', std: '院子',   area: '川渝' },
+  { word: '院坝', std: '院子',   area: '川渝' },
+  { word: '好多钱', std: '多少钱', area: '川渝' },
+  { word: '好多层', std: '几层',   area: '川渝' },
+  { word: '好多平', std: '多少平方米', area: '川渝' },
+  { word: '要得', std: '可以/确认', area: '川渝' },
+  { word: '咋个', std: '怎么',   area: '川渝' },
+  { word: '啥子', std: '什么',   area: '川渝' },
+  { word: '屋头', std: '家里',   area: '川渝' },
+  { word: '圈圈', std: '猪圈',   area: '川渝' },
+  /* 中原 / 西北 */
+  { word: '灶房', std: '厨房',   area: '中原/西北' },
+  { word: '茅子', std: '旱厕',   area: '中原/西北' },
+  { word: '中中中', std: '可以', area: '中原' },
+  { word: '咋整', std: '怎么办', area: '东北/北方' },
+  { word: '俩层', std: '2层',    area: '北方' },
+  /* 东北 */
+  { word: '茅楼', std: '旱厕',   area: '东北' },
+  { word: '外屋地', std: '厨房', area: '东北' },
+  /* 湘赣 */
+  { word: '猪栏', std: '猪圈',   area: '湘赣' },
+  { word: '栏里', std: '猪圈',   area: '湖南' },
+  { word: '杂屋', std: '杂物间', area: '湘赣' },
+  { word: '地坪', std: '院子',   area: '湖南' },
+  { word: '灶下', std: '厨房',   area: '江西' },
+  { word: '禾场', std: '晒谷场', area: '江西' },
+  /* 粤语 / 客家 */
+  { word: '屋企', std: '家里',   area: '粤语区' },
+  { word: '几多层', std: '几层', area: '粤语区' },
+  { word: '地头', std: '宅基地', area: '粤语区' },
+  { word: '几多钱', std: '多少钱', area: '粤语区' },
+  /* 通用口语 */
+  { word: '平房', std: '1层',    area: '通用口语' },
+  { word: '小洋楼', std: '2-3层', area: '通用口语' },
+  { word: '火房', std: '柴火灶厨房', area: '西南' },
+  { word: '蹲坑', std: '旱厕',   area: '通用口语' }
+];
+
+/* ---------- 构造规则：降雨 / 抗震 / 冻土 / 地形 ---------- */
+function rainRule(rain) {
+  if (rain < 400) {
+    return { tier: '干旱少雨', roof: '平顶(可晒粮)', slope: 5, eave: 20,
+      drain: '屋面有组织排水，院内集水窖', risk: '防风沙、保温' };
+  }
+  if (rain < 800) {
+    return { tier: '降雨适中', roof: '双坡屋顶', slope: 18, eave: 40,
+      drain: '檐沟+落水管，房屋四周做散水', risk: '防雨一般设防' };
+  }
+  if (rain < 1200) {
+    return { tier: '雨水较多', roof: '双坡屋顶', slope: 25, eave: 60,
+      drain: '深挑檐+檐沟，散水宽80cm，院内地沟排水', risk: '防潮、基础抬高' };
+  }
+  if (rain < 1600) {
+    return { tier: '多雨潮湿', roof: '陡坡屋顶', slope: 30, eave: 70,
+      drain: '坡屋面+深挑檐，院内排水沟+化粪池防倒灌', risk: '首层架空或抬高30cm、地面防潮' };
+  }
+  return { tier: '暴雨/台风区', roof: '陡坡屋顶', slope: 35, eave: 80,
+    drain: '强排水+双檐沟，屋面瓦抗风固定，院内管网排水', risk: '抗风揭、防潮、抬高地基' };
+}
+
+function seisRule(seis) {
+  if (seis <= 6) return { struct: '砖混结构', measure: '地圈梁+屋面圈梁', col: false };
+  if (seis === 7) return { struct: '砖混结构', measure: '圈梁+四大角构造柱', col: true };
+  if (seis === 8) return { struct: '砖混(加强)或框架', measure: '圈梁+构造柱加密(开间≤4m)', col: true };
+  return { struct: '推荐框架结构', measure: '全梁柱框架，控制层高与开洞，专业抗震计算', col: true };
+}
+
+function frostRule(frost) {
+  if (!frost) return { depth: 0.6, text: '无冻土问题，基础埋深≥0.6m' };
+  return { depth: +(frost + 0.25).toFixed(2),
+    text: '当地标准冻深约' + frost + 'm，基础必须坐到冻土层以下，埋深≥' + (frost + 0.25).toFixed(2) + 'm' };
+}
+
+function terrainRule(t) {
+  if (t === '平原')  return { text: '地势平坦：注意回填土分层夯实，排水找坡', extraCost: 0 };
+  if (t === '镇上')  return { text: '镇边场地：做好与道路衔接、化粪池位置预留', extraCost: 0 };
+  if (t === '丘陵')  return { text: '丘陵坡地：依坡就势错层布置，坡上设截水沟', extraCost: 80 };
+  return { text: '山区场地：先做边坡勘察，必须设挡土墙/护坡，避开滑坡和汇水线', extraCost: 180 };
+}
+
+</script>
+<script>
+/* ===== llm.js (内联) ===== */
+/* ============================================================
+ * 乡居设计通 · 真实大模型接入层（DeepSeek / OpenAI 兼容协议）
+ *  - 浏览器直连 /chat/completions（支持 tools/function calling）
+ *  - Key / baseUrl / model 仅存本机 localStorage，不随代码提交
+ *  - 未配置或调用失败时由 app.js 明确提示并切回演示话术，绝不伪装成 AI
+ * ============================================================ */
+'use strict';
+
+const LLM = (() => {
+
+  const STORE_KEY = 'xjsd_llm_cfg_v1';
+  const DEFAULT_BASE = 'https://api.deepseek.com';
+  const DEFAULT_MODEL = 'deepseek-chat';
+
+  /* viaProxy=true：密钥在服务端代理（Worker / 本地 Python），浏览器不持 Key；
+     此时 apiKey 字段复用为“代理访问口令 APP_TOKEN”（可空） */
+  const PRESETS = [
+    { name: '我的 Cloudflare Worker 代理（推荐，Key 藏服务端）', base: 'https://你的worker地址.workers.dev/v1',
+      models: ['deepseek-chat'], viaProxy: true,
+      hint: '先部署 proxy-worker 并 wrangler secret put DEEPSEEK_API_KEY，再把这里换成你的 Worker 地址（含 /v1）。' },
+    { name: '本地一键代理（local_proxy.ps1 / .py，演示用）', base: 'http://127.0.0.1:8788/v1',
+      models: ['deepseek-chat'], viaProxy: true,
+      hint: '双击/运行 local_proxy.ps1（Windows 零安装，推荐）并粘贴 Key；或有 Python 时运行 local_proxy.py。页面直接开 http://127.0.0.1:8788/ 还能免跨域。' },
+    { name: 'DeepSeek 直连（浏览器持有 Key）', base: 'https://api.deepseek.com', models: ['deepseek-chat', 'deepseek-reasoner'] },
+    { name: '通义千问(兼容模式)', base: 'https://dashscope.aliyuncs.com/compatible-mode/v1', models: ['qwen-plus', 'qwen-turbo', 'qwen-flash'] },
+    { name: '硅基流动', base: 'https://api.siliconflow.cn/v1', models: ['deepseek-ai/DeepSeek-V3', 'deepseek-ai/DeepSeek-V2.5'] },
+    { name: 'OpenAI / 自定义兼容网关', base: 'https://api.openai.com/v1', models: ['gpt-4o-mini', 'gpt-4o'] }
+  ];
+
+  function loadCfg() {
+    try {
+      return Object.assign({ baseUrl: DEFAULT_BASE, apiKey: '', model: DEFAULT_MODEL, viaProxy: false },
+        JSON.parse(localStorage.getItem(STORE_KEY) || '{}'));
+    } catch (e) { return { baseUrl: DEFAULT_BASE, apiKey: '', model: DEFAULT_MODEL, viaProxy: false }; }
+  }
+  function saveCfg(cfg) {
+    const cur = loadCfg();
+    localStorage.setItem(STORE_KEY, JSON.stringify({
+      baseUrl: cfg.baseUrl || cur.baseUrl,
+      model: cfg.model || cur.model,
+      apiKey: cfg.apiKey != null ? cfg.apiKey : cur.apiKey,
+      viaProxy: !!(cfg.viaProxy != null ? cfg.viaProxy : cur.viaProxy)
+    }));
+  }
+  function configured() {
+    const cfg = loadCfg();
+    if (cfg.viaProxy) return /^https?:\/\/.+/i.test(cfg.baseUrl) && !/你的worker地址/.test(cfg.baseUrl);
+    return !!cfg.apiKey.trim();
+  }
+
+  /* ---------------- 系统提示词与工具定义 ---------------- */
+
+  function systemPrompt(snapshot) {
+    return `你是“乡居设计通”公益热线的人工客服，名字叫小居，28岁，热情、耐心、像亲侄女一样。
+你的客户是50~70岁、小学没毕业、在外打工二十多年、准备回老家花约50万盖自建房的农村大妈。她们说各地方言，不会说普通话书面语，容易答非所问。
+
+【说话风格 · 必须遵守】
+1. 一次只问一个问题，等大妈回答了再问下一个；句子短、大白话，多用“嘞、呀、嘛、您看”，禁用任何专业术语（如“宅基地面积”改成“那块地有好大”）。
+2. 对方言口语直接听懂、不纠正（如：灶屋=厨房，茅司/茅厮=厕所，坝子/院坝=院子，猪栏/圈圈=猪圈，睡房=卧室，要得=好的，好多钱=多少钱）。
+3. 听到数字主动换算成标准值：1分地≈66.67㎡，1亩≈666.67㎡；“五十万左右/上下”按50；“三四十万”按35；“两层半”按3层（三层做晒台）。
+4. 对不合理输入温和追问；拿不准的信息绝不替大妈猜；拿到关键信息后用她能懂的话复述确认。
+5. 绝对不要提 AI、模型、JSON、工具、系统这些词；你就是打电话的人工客服小居。
+
+【需要逐项问全的信息（按此顺序，一项一项来）】
+- region 建房省份：必须是可识别的中国省级名称（如 四川、河南、广东），必要时问清是县还是省；
+- terrain 地势：平原 / 镇上 / 丘陵 / 山区；
+- floors 层数：1~3 的整数（两层半记为3）；
+- plot 宅基地面积㎡：按上面的换算折成平方米，合理范围 30~800；
+- budget 预算（万元）：10~300；
+- bedrooms 卧室间数：1~8；
+- kitchen 厨房：big=大厨房（通常要柴火灶）/ mid=一般大 / small=小厨房（电气化）；
+- toilet 厕所：indoor=室内马桶淋浴 / outhouse=院头旱厕 / both=室内加院里旱厕；
+- pig / chicken / storage：要不要猪圈、鸡(鸭鹅)圈、杂物间（布尔值，明确说不要也要如实记 false）；
+- hall / yard：要不要堂屋、院坝（布尔）；
+- priority 最看重：save=省钱结实 / elder=养老方便 / fancy=气派好看 / family=儿孙回来住得下。
+
+【工具调用纪律】
+1. 每次从大妈话里听到新信息，立即调用 update_requirements 记录，只传本次新确认或需要修改的字段；不要因为一个字段没问就跳过其他已明确的信息。
+2. 调用后看工具返回：它会告诉你还缺哪些项，就按顺序继续问下一项；若提示“信息已齐”，你要用家常话把全部信息复述一遍并问“要得不/行不行”，**必须拿到大妈明确同意后**，再调用 finish_intake 出图。
+3. 大妈要改信息时，调用 update_requirements 覆盖对应字段，然后重新复述确认。
+4. 复述确认前，严禁调用 finish_intake。
+
+【当前已记录】
+${snapshot}
+
+【当前阶段】
+等下一次用户发言或开场问候。开场先亲热问候，说明“用家乡话说就行，我听得懂”，然后只问第一个问题：在哪个省盖房。`;
+  }
+
+  const TOOLS = [
+    {
+      type: 'function',
+      function: {
+        name: 'update_requirements',
+        description: '把刚刚从大妈话里确认的建房需求记录/更新到工单。每次只传本次新确认或有改动的字段。',
+        parameters: {
+          type: 'object',
+          properties: {
+            region: { type: 'string', description: '建房所在省/直辖市/自治区的标准名称，如 四川、河南、内蒙古、广西' },
+            terrain: { type: 'string', enum: ['平原', '镇上', '丘陵', '山区'] },
+            floors: { type: 'integer', minimum: 1, maximum: 3 },
+            plot: { type: 'number', description: '宅基地面积，单位平方米（1分地≈66.67㎡，1亩≈666.67㎡）', minimum: 30, maximum: 800 },
+            budget: { type: 'number', description: '建房总预算，单位万元', minimum: 10, maximum: 300 },
+            bedrooms: { type: 'integer', minimum: 1, maximum: 8 },
+            kitchen: { type: 'string', enum: ['big', 'mid', 'small'], description: 'big大厨房带柴火灶 / mid一般大 / small小厨房电气化' },
+            toilet: { type: 'string', enum: ['indoor', 'outhouse', 'both'], description: 'indoor室内马桶 / outhouse院头旱厕 / both两者都要' },
+            pig: { type: 'boolean' }, chicken: { type: 'boolean' }, storage: { type: 'boolean' },
+            hall: { type: 'boolean', description: '要不要堂屋' },
+            yard: { type: 'boolean', description: '要不要院坝/院子' },
+            priority: { type: 'string', enum: ['save', 'elder', 'fancy', 'family'] }
+          }
+        }
+      }
+    },
+    {
+      type: 'function',
+      function: {
+        name: 'finish_intake',
+        description: '当全部信息问齐、且已经向大妈复述并得到明确同意（如“要得/行/就这样”）后调用，系统据此出初步设计图。',
+        parameters: { type: 'object', properties: {} }
+      }
+    }
+  ];
+
+  /* ---------------- 会话状态 ---------------- */
+
+  let history = [];
+
+  function reset(snapshot) {
+    history = [{ role: 'system', content: systemPrompt(snapshot || '（尚无记录）') }];
+  }
+
+  function refreshSystem(snapshot) {
+    if (history.length && history[0].role === 'system') history[0].content = systemPrompt(snapshot);
+  }
+
+  /* ---------------- 底层请求 ---------------- */
+
+  async function request(messages, opts) {
+    const cfg = loadCfg();
+    if (!configured()) {
+      throw makeError('nokey', cfg.viaProxy ? '代理地址还没填好，请在“大模型设置”里粘贴代理地址（含 /v1）' : '还没有填写 API Key');
+    }
+    const url = cfg.baseUrl.replace(/\/+$/, '') + '/chat/completions';
+    const headers = { 'Content-Type': 'application/json' };
+    if (cfg.viaProxy) {
+      /* 代理模式：密钥在服务端；apiKey 字段存的是可选的访问口令 */
+      if (cfg.apiKey.trim()) headers['X-App-Token'] = cfg.apiKey.trim();
+    } else {
+      headers['Authorization'] = 'Bearer ' + cfg.apiKey.trim();
+    }
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), (opts && opts.timeoutMs) || 45000);
+    let resp;
+    try {
+      resp = await fetch(url, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          model: cfg.model || DEFAULT_MODEL,
+          messages,
+          tools: opts && opts.withTools ? TOOLS : undefined,
+          tool_choice: opts && opts.withTools ? 'auto' : undefined,
+          temperature: opts && opts.temperature != null ? opts.temperature : 0.6,
+          max_tokens: opts && opts.maxTokens || 600
+        }),
+        signal: ctrl.signal
+      });
+    } catch (e) {
+      clearTimeout(timer);
+      if (e.name === 'AbortError') throw makeError('timeout', '大模型响应超时（45秒），信号不好时可以再说一遍');
+      throw makeError('network', '连不上模型服务，可能是网络问题或浏览器拦截了跨域请求（CORS）');
+    }
+    clearTimeout(timer);
+
+    if (!resp.ok) {
+      let detail = '';
+      try { detail = (await resp.json()).error.message || ''; } catch (e) {}
+      if (resp.status === 401) throw makeError('auth', 'API Key 不对或已失效，请点右上角“模型设置”检查（' + detail + '）');
+      if (resp.status === 402 || resp.status === 429) throw makeError('quota', '账户余额/额度不足或请求太频繁：' + detail);
+      if (resp.status === 404) throw makeError('model', '模型名或接口地址不对（' + cfg.model + '），请在模型设置里核对：' + detail);
+      throw makeError('http', '模型服务返回错误 ' + resp.status + (detail ? '：' + detail : ''));
+    }
+    const data = await resp.json();
+    const msg = data.choices && data.choices[0] && data.choices[0].message;
+    if (!msg) throw makeError('empty', '模型没有返回内容，请再说一遍试试');
+    return msg;
+  }
+
+  function makeError(type, text) { const e = new Error(text); e.type = type; return e; }
+
+  /* ---------------- 对外：一轮对话（可含多次工具续轮） ----------------
+   * hooks: { onAgentText(text), onTool(patch), onFinish(), snapshot(), gateFinish() }
+   * --------------------------------------------------------------------- */
+  async function turn(userText, hooks) {
+    if (userText !== null) history.push({ role: 'user', content: userText });
+
+    for (let i = 0; i < 6; i++) {
+      refreshSystem(hooks.snapshot());
+      const msg = await request(history, { withTools: true, temperature: 0.6 });
+      history.push(msg);
+
+      if (msg.content && msg.content.trim()) {
+        hooks.onAgentText(msg.content.trim());
+      }
+
+      const calls = msg.tool_calls || [];
+      if (!calls.length) return; /* 模型这一轮只想说话，等大妈回答 */
+
+      for (const call of calls) {
+        let patch = {};
+        try { patch = JSON.parse(call.function.arguments || '{}'); } catch (e) { patch = {}; }
+        let resultText;
+
+        if (call.function.name === 'update_requirements') {
+          const clean = hooks.onTool(patch); /* 返回 {accepted, missing, allDone, awaitingConfirm} */
+          resultText = JSON.stringify(clean);
+        } else if (call.function.name === 'finish_intake') {
+          const gate = hooks.gateFinish();
+          if (gate.ok) {
+            history.push({ role: 'tool', tool_call_id: call.id, content: JSON.stringify({ ok: true, text: '用户已确认，正在生成设计图' }) });
+            hooks.onFinish();
+            return;
+          }
+          resultText = JSON.stringify({ ok: false, reason: gate.reason, missing: gate.missing });
+        } else {
+          resultText = JSON.stringify({ ok: false, reason: '未知工具' });
+        }
+        history.push({ role: 'tool', tool_call_id: call.id, content: resultText });
+      }
+      /* 有工具调用 → 续一轮，让模型根据工具结果继续说话/追问/复述 */
+    }
+  }
+
+  async function testConnection() {
+    const msg = await request([{ role: 'user', content: '回复两个字：在的' }],
+      { withTools: false, maxTokens: 10, temperature: 0, timeoutMs: 20000 });
+    return (msg.content || '').trim();
+  }
+
+  return { PRESETS, DEFAULT_BASE, DEFAULT_MODEL, loadCfg, saveCfg, configured, reset, turn, testConnection };
+})();
+
+</script>
+<script>
+/* ===== app.js (内联) ===== */
+/* ============================================================
+ * 乡居设计通 · 应用逻辑
+ *  - 通话状态机 / 渐进式提问引擎
+ *  - 方言命中、中文口语数字、面积/预算解析
+ *  - Web Speech 语音朗读(朗读客服话术) + 语音识别(可选)
+ *  - 需求 → 气候地质规则 → SVG 平面图/立面/预算/设计说明
+ * ============================================================ */
+'use strict';
+
+/* ================= 1. 工具：口语数字 / 单位 / 方言 ================= */
+
+/* 中文口语数字：支持 "一百二"(=120)、"八十"、"俩"、"两层" 等 */
+function cnToNum(str) {
+  if (typeof str === 'number') return str;
+  const m = String(str).match(/[零一二两俩三四五六七八九十百千\.0-9]+/);
+  if (!m) return NaN;
+  let s = m[0].replace(/俩/g, '2');
+  if (/^[\d.]+$/.test(s)) return parseFloat(s);
+  const d = { 零: 0, 一: 1, 二: 2, 两: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 };
+  let section = 0, num = 0, hasShi = /十/.test(s);
+  for (const ch of s) {
+    if (ch in d) num = d[ch];
+    else if (ch === '十') { section += (num || 1) * 10; num = 0; }
+    else if (ch === '百') { section += num * 100; num = 0; }
+    else if (ch === '千') { section += num * 1000; num = 0; }
+  }
+  /* "一百二" → 百后余 2 按 20 计 */
+  if (num !== 0 && section >= 100 && !hasShi) return section + num * 10;
+  return section + num;
+}
+
+/* 面积解析：120平 / 两分地 / 一百二十个平方 / 0.3亩 → 平方米 */
+function parseArea(text) {
+  const t = text.replace(/个|方地/g, '');
+  let m = t.match(/([零一二两三四五六七八九十百千\d.]+)\s*(亩)/);
+  if (m) return Math.round(cnToNum(m[1]) * 666.67);
+  m = t.match(/([零一二两三四五六七八九十百千\d.]+)\s*分(地)?/);
+  if (m) return Math.round(cnToNum(m[1]) * 66.67);
+  m = t.match(/([零一二两三四五六七八九十百千\d.]+)\s*(平方米|平米|平方|平|㎡)/);
+  if (m) return Math.round(cnToNum(m[1]));
+  /* 裸数字按平方米兜底（仅在数字 30~1000 之间可信） */
+  const n = cnToNum(t);
+  if (!isNaN(n) && n >= 30 && n <= 1000 && /\d|[一二两三四五六七八九十百千]/.test(t)) return Math.round(n);
+  return NaN;
+}
+
+/* 方言命中（按词条长度降序，最长匹配） */
+function detectDialect(text) {
+  const hits = [];
+  const words = DIALECT_WORDS.slice().sort((a, b) => b.word.length - a.word.length);
+  let rest = text;
+  for (const w of words) {
+    if (rest.indexOf(w.word) !== -1) {
+      hits.push(w);
+      rest = rest.split(w.word).join(''); /* 命中片段摘除，避免子串重复命中 */
+    }
+  }
+  return hits;
+}
+
+/* 肯定 / 否定 */
+function isYes(t) { return /要得|中|好|可以|行|嗯|对|没错|没问题|出图|就这样|要的/.test(t); }
+function isNo(t) { return /不要|没得|没有|不养|不盖|不搞|算了|不消|莫得|无/.test(t); }
+
+/* ================= 2. 需求槽位 + 问卷脚本 ================= */
+
+const defaultSlots = () => ({
+  region: null, terrain: null, floors: null, plot: null,
+  budget: null, bedrooms: null, kitchen: null, toilet: null,
+  pig: false, chicken: false, storage: false, outhouse: false,
+  hall: null, yard: null, priority: null
+});
+
+const QUESTIONS = [
+  {
+    id: 'region',
+    ask: '大娘您好！我是乡居设计通的客服小居。今天打这个电话，就是想陪您把新房子的样子聊出来，大概耽误您十分钟，您用家乡话说就行，我听得懂。——您打算在哪个省、哪个地方盖房呀？',
+    chips: ['四川', '河南', '湖南', '广东', '贵州', '陕西', '广西', '安徽'],
+    parse(t) {
+      for (const a in REGION_ALIAS) if (t.indexOf(a) !== -1) return REGION_ALIAS[a];
+      const hits = Object.keys(REGIONS).filter(p => t.indexOf(p.replace(/省|市|壮族自治区|回族|维吾尔自治区|自治区/g, '')) !== -1 || t.indexOf(p) !== -1);
+      return hits.length ? hits[0] : null;
+    },
+    retry: '莫急，您就跟我说个省名就行，比如“四川”“河南”，您看是哪儿呀？'
+  },
+  {
+    id: 'terrain',
+    ask: '好嘞！那您家那块地，是在平坝坝的平原上，还是镇子边上，或者是丘陵坡地、大山里头呀？',
+    chips: ['平原坝子里', '镇子边上', '丘陵坡地上', '大山沟里头'],
+    parse(t) {
+      if (/平原|平坝|坝里|坝区|川道|塬上/.test(t)) return '平原';
+      if (/镇|街|村边|路边|城郊/.test(t)) return '镇上';
+      if (/丘陵|坡地|坡上|半山|梁上/.test(t)) return '丘陵';
+      if (/山|沟|坳|岭|寨/.test(t)) return '山区';
+      return null;
+    },
+    retry: '您就说地势平不平：是平原、镇上、坡地、还是山里？'
+  },
+  {
+    id: 'floors',
+    ask: '房子打算盖几层呢？是盖个平房，还是两层、两层半、三层的小洋楼？',
+    chips: ['就盖一层平房', '盖两层', '两层半', '盖三层'],
+    parse(t) {
+      if (/两层半|2层半|二层半/.test(t)) return 3; /* 两层半按三层处理，三层做晒台 */
+      if (/平房|一层|1层/.test(t)) return 1;
+      if (/三层|3层|三楼/.test(t)) return 3;
+      if (/两层|2层|二楼|俩层|小洋楼|半层/.test(t)) return 2;
+      const n = cnToNum(t);
+      if (!isNaN(n) && n >= 1 && n <= 3) return n;
+      return null;
+    },
+    retry: '您说个层数就行：一层、两层，还是三层？'
+  },
+  {
+    id: 'plot',
+    ask: '您那块宅基地大概多大呀？按“平”说也行，按“分”“亩”说也行。比如“一百二十平”“两分地”，我都听得懂。',
+    chips: ['一分地，大概67平', '两分地，130来平', '一百五十平', '三分地，200平'],
+    parse(t) {
+      const n = parseArea(t);
+      if (isNaN(n) || n < 30 || n > 800) return NaN;
+      return n;
+    },
+    invalid: '这个数我没大听懂。您再说说，比如“一百二十平”或者“两分地”？',
+    retry: '地方有好大，您给我个大概数：多少平，或者几分地？'
+  },
+  {
+    id: 'budget',
+    ask: '盖房的钱您大概准备了多少万呀？除了主体，咱们还得留点装修和院子的钱。',
+    chips: ['三四十万', '五十万左右', '六十来万', '钱够，不差钱'],
+    parse(t) {
+      let m = t.match(/([零一二两三四五六七八九十百千\d.]+)\s*万/);
+      if (m) {
+        if (/[三四]十/.test(m[1]) && /^[三四]/.test(m[1])) {
+          if (m[1][0] === '三') return 35;
+          if (m[1][0] === '四') return 45;
+        }
+        const n = cnToNum(m[1]);
+        if (!isNaN(n) && n >= 10 && n <= 300) return Math.round(n);
+      }
+      if (/不差钱|钱够|随便花|越多越好/.test(t)) return 80;
+      if (/三四十/.test(t)) return 35;
+      if (/五六十/.test(t)) return 60;
+      return null;
+    },
+    retry: '您说个大概数就行：准备了好多万？比如“五十万”。'
+  },
+  {
+    id: 'bedrooms',
+    ask: '家里想要几个卧室（睡房）呀？您和老伴一间在一楼，过年儿孙回来得住，您算上他们那份。',
+    chips: ['两间够了', '三间', '四间', '五六间'],
+    parse(t) {
+      if (/五六|5\s*6/.test(t)) return 6;
+      const m = t.match(/([零一二两俩三四五六七八九十\d]+)\s*[间个]?/);
+      const n = cnToNum(m ? m[1] : t);
+      if (!isNaN(n) && n >= 1 && n <= 8) return n;
+      return null;
+    },
+    retry: '您就给我个数：要几间睡房？两间、三间还是四间？'
+  },
+  {
+    id: 'kitchen',
+    ask: '厨房（灶屋）想要大点还是小一点？要不要留个烧柴的柴火灶？',
+    chips: ['要大厨房，带柴火灶', '一般大就行', '小一点，用煤气电器'],
+    parse(t) {
+      /* “一般大”要先于 /大/ 判断，否则会被误判成大厨房 */
+      if (/一般|中等|普通|差不多|随缘/.test(t)) return 'mid';
+      if (/大|宽敞|柴火|烧柴|火房/.test(t)) return 'big';
+      if (/小|窄|凑活|煤气|电器/.test(t)) return 'small';
+      return null;
+    },
+    retry: '厨房您想要大的还是小的？大的我给您配柴火灶。'
+  },
+  {
+    id: 'toilet',
+    ask: '厕所咋安排？是屋里装马桶带淋浴，还是院里头再留个老式蹲坑（旱厕）？',
+    chips: ['屋里要马桶和淋浴', '屋里马桶，院里再留个蹲坑', '就搞个老式旱厕'],
+    parse(t) {
+      const indoor = /马桶|卫生间|淋浴|洗澡|冲水/.test(t);
+      const out = /旱厕|蹲坑|茅|老式/.test(t);
+      if (indoor && out) return 'both';
+      if (indoor) return 'indoor';
+      if (out) return 'outhouse';
+      return null;
+    },
+    retry: '您说要马桶还是蹲坑？也可以两个都要。'
+  },
+  {
+    id: 'pen',
+    ask: '还养不养牲口？猪圈、鸡圈要不要留？杂物间（杂屋）需不需要？',
+    chips: ['要猪圈', '养点鸡鸭', '猪圈鸡圈都要', '都不养，留个杂物间就行'],
+    parse(t) {
+      if (/都不养|不养|不要|莫得|没有|算了/.test(t) && /杂物|杂屋/.test(t))
+        return { pig: false, chicken: false, storage: true };
+      const none = /都不养|不养|啥都不要|一样不要/.test(t);
+      return {
+        pig: !none && /猪/.test(t),
+        chicken: !none && /鸡|鸭|鹅/.test(t),
+        storage: !none && /杂物|杂屋|农具/.test(t)
+      };
+    },
+    retry: '您告诉我养啥就行：猪、鸡鸭，还是都不养？'
+  },
+  {
+    id: 'courtyard',
+    ask: '堂屋（一进门摆酒席、待客那间正屋）和院坝要不要？堂屋敞亮、院坝可以晒谷子停车。',
+    chips: ['堂屋大院坝都要', '要堂屋，院子一般', '不用堂屋，留院子就行'],
+    parse(t) {
+      const hall = !(/不用堂屋|不要堂屋/.test(t)) && (/堂屋/.test(t) || /都要/.test(t) || /待客/.test(t));
+      const yard = !(/不要院|没得院/.test(t)) && (/院|坝|晒谷|停车|都要/.test(t));
+      if (!hall && !yard) return null;
+      return { hall, yard };
+    },
+    retry: '您说堂屋要不要、院坝要不要就行，也可以都要。'
+  },
+  {
+    id: 'priority',
+    ask: '最后问您最要紧的一条：盖这个房子，您最看重啥？是省钱结实、养老方便、气派好看，还是过年儿孙回来住得下？',
+    chips: ['省钱结实最重要', '养老住着方便', '修气派有面子', '儿孙回来住得下'],
+    parse(t) {
+      if (/省|结实|牢固|便宜|划算/.test(t)) return 'save';
+      if (/养老|方便|腿脚|扶手|防滑|老人/.test(t)) return 'elder';
+      if (/气派|好看|面子|排场|风光/.test(t)) return 'fancy';
+      if (/儿孙|娃|回来|过年|团圆|住得下|人多/.test(t)) return 'family';
+      return null;
+    },
+    retry: '您挑一个最要紧的：省钱、养老方便、气派，还是儿孙住得下？'
+  },
+  {
+    id: 'confirm',
+    ask() {
+      const s = S;
+      const pen = [s.pig ? '猪圈' : null, s.chicken ? '鸡圈' : null, s.storage ? '杂物间' : null].filter(Boolean).join('、') || '不养牲口';
+      const toilet = { indoor: '室内卫生间', outhouse: '院头旱厕', both: '室内卫生间+院里旱厕' }[s.toilet];
+      return '我跟您核对一下：' + s.region + '（' + TERRAIN_TXT[s.terrain] + '）盖' + s.floors +
+        '层，宅基地约' + s.plot + '平，预算' + s.budget + '万，' + s.bedrooms + '间卧室，厨房' +
+        (s.kitchen === 'big' ? '大间带柴火灶' : s.kitchen === 'small' ? '小间用电器' : '一般大') +
+        '，' + toilet + '，' + pen + '，' + (s.hall ? '有堂屋' : '不设堂屋') + '、' +
+        (s.yard ? '有院坝' : '院子从简') + '。我按' + s.region + '当地的雨水、地震情况把地基和屋顶都考虑上，这就给您出图，要得不？';
+    },
+    chips: ['要得，出图！', '等一下，我再补两句'],
+    parse(t) {
+      if (/等|补|不对|错了|改|重新说|莫忙/.test(t)) return 'change';
+      if (isYes(t)) return 'ok';
+      return null;
+    },
+    retry: '您说“要得”我就出图；要改哪儿，您直接说。'
+  }
+];
+
+const TERRAIN_TXT = { 平原: '平原坝区', 镇上: '镇子边上', 丘陵: '丘陵坡地', 山区: '山区' };
+const PRIORITY_TXT = { save: '省钱结实', elder: '养老方便', fancy: '气派好看', family: '儿孙住得下' };
+
+/* ================= 3. 状态与 DOM ================= */
+
+let S = defaultSlots();
+let qIndex = 0;
+let inCall = false;
+let timerId = null;
+let seconds = 0;
+let recognizing = false;
+let recognition = null;
+
+/* AI 模式状态 */
+let aiMode = false;
+let aiBusy = false;
+let aiAnswered = null;      /* 已问齐项的 Set */
+let awaitingConfirm = false;
+let confirmReceived = false;
+let typingEl = null;
+
+const $ = id => document.getElementById(id);
+const els = {};
+
+function bindEls() {
+  ['dialScreen', 'callScreen', 'startCallBtn', 'hangupBtn', 'callTimer', 'transcript',
+   'chipBar', 'textInput', 'sendBtn', 'micBtn',
+   'slotRows', 'climateCard', 'designSection', 'planPanel', 'planTabs', 'tabPlan',
+   'tabElevation', 'tabBudget', 'tabNotes', 'panelPlan', 'panelElevation',
+   'panelBudget', 'panelNotes', 'summaryStrip', 'redialBtn', 'printBtn',
+   'speechStatus', 'settingsBtn', 'settingsModal', 'settingsClose', 'llmPreset',
+   'llmBase', 'llmModel', 'llmKey', 'llmTest', 'llmSave', 'llmTestResult', 'modelList',
+   'modeAi', 'modeScript', 'modeHint', 'aiBadge', 'aiModelName', 'llmDot',
+   'llmKeyLabel', 'llmPresetHint']
+  .forEach(id => { els[id] = $(id); });
+}
+
+/* ================= 4. 通话流程 ================= */
+
+function tick() {
+  seconds++;
+  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const ss = String(seconds % 60).padStart(2, '0');
+  els.callTimer.textContent = '通话中 ' + m + ':' + ss;
+}
+
+function openCallScreen() {
+  S = defaultSlots();
+  qIndex = 0;
+  seconds = 0;
+  awaitingConfirm = false;
+  confirmReceived = false;
+  aiAnswered = new Set();
+  inCall = true;
+  els.dialScreen.classList.add('hidden');
+  els.callScreen.classList.remove('hidden');
+  els.transcript.innerHTML = '';
+  els.chipBar.innerHTML = '';
+  els.designSection.classList.add('hidden');
+  tick();
+  timerId = setInterval(tick, 1000);
+  renderSlots();
+  els.climateCard.classList.add('hidden');
+}
+
+function startCall() {
+  if (aiMode) {
+    if (!LLM.configured()) {
+      openSettings('请先在“大模型设置”里填上 API Key，再用 AI 模式拨打；也可以先用离线演示话术。');
+      return;
+    }
+    openCallScreen();
+    els.aiBadge.classList.remove('hidden');
+    els.aiModelName.textContent = LLM.loadCfg().model;
+    LLM.reset(llmSnapshot());
+    showTyping();
+    LLM.turn(null, llmHooks()).then(afterAiTurn).catch(aiFail);
+    return;
+  }
+  openCallScreen();
+  els.aiBadge.classList.add('hidden');
+  setTimeout(() => {
+    agentSay(QUESTIONS[0].ask);
+    showChips(0);
+  }, 500);
+}
+
+function hangup() {
+  inCall = false;
+  clearInterval(timerId);
+  stopSpeak();
+  if (recognition) { try { recognition.stop(); } catch (e) {} }
+  els.dialScreen.classList.remove('hidden');
+  els.callScreen.classList.add('hidden');
+  els.chipBar.innerHTML = '';
+}
+
+function showTyping() {
+  hideTyping();
+  typingEl = document.createElement('div');
+  typingEl.className = 'typing-row';
+  typingEl.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+  els.transcript.appendChild(typingEl);
+  scrollBottom();
+}
+function hideTyping() {
+  if (typingEl) { typingEl.remove(); typingEl = null; }
+}
+
+function agentSay(text, opts) {
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    addBubble('agent', text);
+    speak(text);
+    if (opts && opts.after) opts.after();
+  }, opts && opts.fast ? 350 : 750);
+}
+
+function addBubble(role, text, dialectHits) {
+  const b = document.createElement('div');
+  b.className = 'bubble ' + role;
+  b.innerHTML = '<span class="bubble-text"></span>';
+  b.querySelector('.bubble-text').textContent = text;
+  if (dialectHits && dialectHits.length) {
+    const tag = document.createElement('div');
+    tag.className = 'dialect-tag';
+    tag.textContent = '方言识别：' + dialectHits.map(h => h.word + '→' + h.std).join('；');
+    b.appendChild(tag);
+  }
+  els.transcript.appendChild(b);
+  scrollBottom();
+}
+
+function scrollBottom() {
+  els.transcript.scrollTop = els.transcript.scrollHeight;
+}
+
+function showChips(i) {
+  els.chipBar.innerHTML = '';
+  const q = QUESTIONS[i];
+  (q.chips || []).forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.textContent = label;
+    btn.onclick = () => { if (inCall && !(aiMode && aiBusy)) handleAnswer(label); };
+    els.chipBar.appendChild(btn);
+  });
+}
+
+function handleAnswer(rawText) {
+  const text = String(rawText).trim();
+  if (!text || !inCall) return;
+  if (aiMode) { aiHandle(text); return; }
+  const q = QUESTIONS[qIndex];
+  const dialectHits = detectDialect(text);
+  addBubble('user', text, dialectHits);
+  const value = q.parse(text, S);
+
+  if (value === null || (value !== value)) { /* null 或 NaN */
+    agentSay(q.invalid || q.retry, { fast: true });
+    return;
+  }
+
+  /* 落槽 */
+  if (q.id === 'pen') {
+    S.pig = value.pig; S.chicken = value.chicken; S.storage = value.storage;
+  } else if (q.id === 'courtyard') {
+    S.hall = value.hall; S.yard = value.yard;
+  } else if (q.id === 'toilet') {
+    S.toilet = value;
+    S.outhouse = (value !== 'indoor');
+  } else {
+    S[q.id] = value;
+  }
+  renderSlots();
+  if (q.id === 'region') renderClimate();
+
+  /* 确认题分支 */
+  if (q.id === 'confirm') {
+    if (value === 'change') {
+      agentSay('要得，您说，哪一项要改？（演示版可点右上角“重新拨打”重聊一遍，正式版人工客服会陪您逐项改）', {
+        after: () => { setTimeout(() => agentSay(QUESTIONS[qIndex].ask()), 1400); }
+      });
+      return;
+    }
+    finishCall();
+    return;
+  }
+
+  qIndex++;
+  const next = QUESTIONS[qIndex];
+  setTimeout(() => {
+    agentSay(typeof next.ask === 'function' ? next.ask() : next.ask);
+    showChips(qIndex);
+  }, 450);
+}
+
+function presentDesign(model) {
+  inCall = false;
+  clearInterval(timerId);
+  renderSlots();
+  renderDesign(model);
+  els.designSection.classList.remove('hidden');
+  els.designSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+function finishCall(silent) {
+  els.chipBar.innerHTML = '';
+  const model = buildModel();
+  if (silent) { presentDesign(model); return; }
+  agentSay('图给您出好喽！一共' + model.floors + '层，按' + model.region + '的雨水做了' +
+    model.rr.slope + '度的' + model.rr.roof + '，按' + model.rd.seis + '度抗震配了圈梁构造柱，地基埋深也按规矩考虑了。您让屋里娃帮您看手机上的图，有啥不对再打电话来！', {
+    after: () => presentDesign(model)
+  });
+}
+
+/* ================= 4B. AI 真人大脑通话回路 ================= */
+
+function llmSnapshot() {
+  if (!S.region) return '（尚未开始记录）';
+  const lines = [
+    ['省份', S.region], ['地势', S.terrain], ['层数', S.floors], ['宅基地㎡', S.plot],
+    ['预算(万)', S.budget], ['卧室数', S.bedrooms],
+    ['厨房', { big: '大(柴火灶)', mid: '一般', small: '小(电气化)' }[S.kitchen]],
+    ['厕所', { indoor: '室内', outhouse: '旱厕', both: '室内+旱厕' }[S.toilet]],
+    ['猪圈', aiAnswered.has('pen') ? (S.pig ? '要' : '不要') : ''],
+    ['鸡圈', aiAnswered.has('pen') ? (S.chicken ? '要' : '不要') : ''],
+    ['杂物间', aiAnswered.has('pen') ? (S.storage ? '要' : '不要') : ''],
+    ['堂屋', S.hall === null ? '' : (S.hall ? '要' : '不要')],
+    ['院坝', S.yard === null ? '' : (S.yard ? '要' : '不要')],
+    ['最看重', PRIORITY_TXT[S.priority]]
+  ].filter(x => x[1] !== null && x[1] !== '' && x[1] !== undefined);
+  return lines.map(x => '- ' + x[0] + '：' + x[1]).join('\n');
+}
+
+function missingSlots() {
+  const miss = [];
+  ['region', 'terrain', 'floors', 'plot', 'budget', 'bedrooms',
+   'kitchen', 'toilet', 'priority'].forEach(k => { if (S[k] == null) miss.push(k); });
+  if (!aiAnswered.has('pen')) miss.push('pen');
+  if (S.hall === null || S.yard === null) miss.push('courtyard');
+  return miss;
+}
+
+/* 校验并合并模型工具调用传来的字段，返回给模型的工具结果（中文，方便它据此追问） */
+function aiMerge(patch) {
+  const accepted = [];
+  const reject = [];
+  const put = (k, v, mark) => { S[k] = v; accepted.push(k); if (mark) aiAnswered.add(mark); };
+
+  if (typeof patch.region === 'string') {
+    let r = patch.region.trim();
+    if (REGION_ALIAS[r]) r = REGION_ALIAS[r];
+    else if (!REGIONS[r]) r = Object.keys(REGIONS).find(p => r.indexOf(p) !== -1 || p.indexOf(r) !== -1) || null;
+    if (r) { put('region', r); renderClimate(); } else reject.push('region(省份没听清)');
+  }
+  if (['平原', '镇上', '丘陵', '山区'].includes(patch.terrain)) put('terrain', patch.terrain);
+  if ([1, 2, 3].includes(patch.floors)) put('floors', patch.floors);
+  if (typeof patch.plot === 'number' && patch.plot >= 30 && patch.plot <= 800) put('plot', Math.round(patch.plot));
+  else if (patch.plot != null) reject.push('plot(面积要在30~800㎡)');
+  if (typeof patch.budget === 'number' && patch.budget >= 10 && patch.budget <= 300) put('budget', patch.budget);
+  else if (patch.budget != null) reject.push('budget(预算要在10~300万)');
+  if (Number.isInteger(patch.bedrooms) && patch.bedrooms >= 1 && patch.bedrooms <= 8) put('bedrooms', patch.bedrooms);
+  if (['big', 'mid', 'small'].includes(patch.kitchen)) put('kitchen', patch.kitchen);
+  if (['indoor', 'outhouse', 'both'].includes(patch.toilet)) {
+    S.toilet = patch.toilet; S.outhouse = patch.toilet !== 'indoor'; accepted.push('toilet');
+  }
+  if (['pig', 'chicken', 'storage'].some(k => typeof patch[k] === 'boolean')) {
+    if (typeof patch.pig === 'boolean') S.pig = patch.pig;
+    if (typeof patch.chicken === 'boolean') S.chicken = patch.chicken;
+    if (typeof patch.storage === 'boolean') S.storage = patch.storage;
+    aiAnswered.add('pen'); accepted.push('pen(猪圈/鸡圈/杂物间)');
+  }
+  if (typeof patch.hall === 'boolean' || typeof patch.yard === 'boolean') {
+    if (typeof patch.hall === 'boolean') S.hall = patch.hall;
+    if (typeof patch.yard === 'boolean') S.yard = patch.yard;
+    if (S.hall !== null && S.yard !== null) aiAnswered.add('courtyard');
+    accepted.push('courtyard(堂屋/院坝)');
+  }
+  if (['save', 'elder', 'fancy', 'family'].includes(patch.priority)) put('priority', patch.priority);
+
+  /* 任何改动都意味着之前的确认作废，需要重新复述 */
+  if (accepted.length) confirmReceived = false;
+  renderSlots();
+
+  const missing = missingSlots();
+  const allDone = missing.length === 0;
+  if (allDone && !awaitingConfirm) awaitingConfirm = true;
+  return {
+    accepted,
+    rejected: reject,
+    missing,
+    allDone,
+    instruction: allDone
+      ? '信息已经问齐。请用家常话把全部信息给大妈复述一遍，最后问她“要得不/行不行”；她明确同意后再调用 finish_intake。'
+      : '已记录。请继续只问下一个还缺的信息：' + missing[0]
+  };
+}
+
+function llmHooks() {
+  return {
+    snapshot: llmSnapshot,
+    onAgentText(text) {
+      if (!inCall) return; /* 已挂断/已出图则忽略迟到回复 */
+      hideTyping();
+      addBubble('agent', text);
+      speak(text);
+    },
+    onTool(patch) { return aiMerge(patch); },
+    gateFinish() {
+      const missing = missingSlots();
+      if (missing.length) return { ok: false, reason: '信息还没问齐', missing };
+      if (!confirmReceived) return { ok: false, reason: '大妈还没明确同意，请先复述全部信息并问“要得不”', missing: [] };
+      return { ok: true };
+    },
+    onFinish() { if (inCall) finishCall(true); }
+  };
+}
+
+function aiHandle(text) {
+  if (aiBusy) return;
+  const dialectHits = detectDialect(text);
+  addBubble('user', text, dialectHits);
+  els.chipBar.innerHTML = '';
+
+  if (awaitingConfirm) {
+    if (isYes(text)) confirmReceived = true;
+    else if (/不对|错了|改|等|莫忙|不是/.test(text)) confirmReceived = false;
+  }
+  aiBusy = true;
+  showTyping();
+  LLM.turn(text, llmHooks())
+    .then(afterAiTurn)
+    .catch(aiFail);
+}
+
+function afterAiTurn() {
+  aiBusy = false;
+  hideTyping();
+  if (!inCall) return; /* 已出图 */
+  /* 给下一个未答项配快捷短语 */
+  const miss = missingSlots();
+  els.chipBar.innerHTML = '';
+  if (!miss.length) {
+    if (!confirmReceived) {
+      addAiChips(['要得，就这样，出图！', '等一下，我还要改两句']);
+    }
+    return;
+  }
+  const q = QUESTIONS.find(x => x.id === miss[0]);
+  if (q) showChips(QUESTIONS.indexOf(q));
+}
+
+function addAiChips(labels) {
+  labels.forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.textContent = label;
+    btn.onclick = () => { if (inCall && !aiBusy) handleAnswer(label); };
+    els.chipBar.appendChild(btn);
+  });
+}
+
+function aiFail(err) {
+  aiBusy = false;
+  hideTyping();
+  if (!inCall) return;
+  addBubble('agent', '（系统提示）大模型这一下没连上：' + (err && err.message ? err.message : '未知错误') +
+    '。您可以再点上面的话重说一遍；网络不方便就挂断后用“演示话术模式”拨打，图纸照样能出。');
+  els.speechStatus.textContent = 'AI 调用失败：' + (err && err.type ? err.type : 'error') + '（可在大模型设置里测试连接）';
+  afterAiTurn();
+}
+
+/* ================= 5. 需求卡 / 气候卡 ================= */
+
+const SLOT_DEFS = [
+  { k: 'region', label: '建房地点', fmt: v => v || '' },
+  { k: 'terrain', label: '地势', fmt: v => TERRAIN_TXT[v] || '' },
+  { k: 'floors', label: '层数', fmt: v => v ? v + ' 层' : '' },
+  { k: 'plot', label: '宅基地', fmt: v => v ? v + ' ㎡（约' + (v / 66.67).toFixed(1) + '分地）' : '' },
+  { k: 'budget', label: '预算', fmt: v => v ? v + ' 万元' : '' },
+  { k: 'bedrooms', label: '卧室', fmt: v => v ? v + ' 间' : '' },
+  { k: 'kitchen', label: '厨房', fmt: v => ({ big: '大间·带柴火灶', mid: '一般大', small: '小间·电气化' })[v] || '' },
+  { k: 'toilet', label: '厕所', fmt: v => ({ indoor: '室内马桶+淋浴', outhouse: '院头旱厕', both: '室内+旱厕都要' })[v] || '' },
+  { k: 'pen', label: '附属棚圈', fmt: () => [S.pig ? '猪圈' : '', S.chicken ? '鸡圈' : '', S.storage ? '杂物间' : ''].filter(Boolean).join('、') || '暂不安排' },
+  { k: 'courtyard', label: '堂屋院坝', fmt: () => (S.hall === null ? '' : [S.hall ? '堂屋' : '', S.yard ? '院坝' : ''].filter(Boolean).join('+') || '都不要') },
+  { k: 'priority', label: '最看重', fmt: v => PRIORITY_TXT[v] || '' }
+];
+
+function renderSlots() {
+  els.slotRows.innerHTML = SLOT_DEFS.map(d => {
+    const val = d.fmt(S[d.k], S);
+    return '<div class="slot-row ' + (val ? 'filled' : '') + '">' +
+      '<span class="slot-label">' + d.label + '</span>' +
+      '<span class="slot-value">' + (val || '待询问…') + '</span></div>';
+  }).join('');
+}
+
+function renderClimate() {
+  const r = REGIONS[S.region];
+  if (!r) return;
+  const rr = rainRule(r.rain);
+  const rainPct = Math.min(100, Math.round(r.rain / 20));
+  els.climateCard.classList.remove('hidden');
+  els.climateCard.innerHTML =
+    '<div class="climate-title">“' + S.region + '”自动调取 · 气候地质参考</div>' +
+    '<div class="climate-row"><span>年均降雨</span><b>' + r.rain + ' mm</b><small>' + rr.tier + ' · 雨季' + r.months + '</small></div>' +
+    '<div class="meter"><i style="width:' + rainPct + '%"></i></div>' +
+    '<div class="climate-row"><span>抗震设防</span><b>' + r.seis + ' 度区</b><small>构造措施自动加强</small></div>' +
+    '<div class="climate-row"><span>标准冻深</span><b>' + (r.frost ? r.frost + ' m' : '基本无冻土') + '</b><small>决定基础埋深</small></div>' +
+    '<div class="climate-row"><span>典型土质</span><b></b><small>' + r.soil + '</small></div>' +
+    '<div class="climate-row"><span>当地方言</span><b></b><small>' + r.dialect + '（词库已覆盖部分常用词）</small></div>';
+}
+
+/* ================= 6. 方案模型推导 ================= */
+
+function buildModel() {
+  const rd = REGIONS[S.region];
+  const rr = rainRule(rd.rain);
+  const sr = seisRule(rd.seis);
+  const fr = frostRule(rd.frost);
+  const tr = terrainRule(S.terrain);
+
+  /* 主房基底：宅基地的 55% 左右，60~145㎡ 取整到 5；极小地块不超过地块的 95% */
+  let base = 0;
+  if (S.plot) base = Math.max(60, Math.min(145, Math.round(S.plot * 0.55 / 5) * 5));
+  const dims = base <= 66 ? [8, 8] : base <= 90 ? [10, 9] : base <= 110 ? [11, 10] : base <= 130 ? [12, 10.5] : [13, 11];
+  base = Math.round(dims[0] * dims[1]);
+  const totalArea = Math.round(base * S.floors * 10) / 10;
+
+  /* 附属房面积 */
+  const annexArea = (S.pig ? 9 : 0) + (S.chicken ? 5 : 0) + (S.storage ? 8 : 0) + (S.toilet !== 'indoor' ? 4 : 0);
+
+  /* 造价 */
+  const unit = 1650 + (rd.seis === 8 ? 150 : 0) + (rd.seis >= 9 ? 520 : 0) + tr.extraCost;
+  const finishUnit = S.priority === 'fancy' ? 800 : S.priority === 'save' ? 500 : 650;
+  const structure = Math.round(totalArea * unit);
+  const finish = Math.round(totalArea * finishUnit);
+  const annexCost = annexArea * 900;
+  const wallYard = S.yard ? 22000 : 10000;
+  const drain = rd.rain > 1200 ? 20000 : rd.rain > 800 ? 14000 : 8000;
+  const subtotal = structure + finish + annexCost + wallYard + drain;
+  const reserve = Math.round(subtotal * 0.05 / 1000) * 1000;
+  const totalCost = subtotal + reserve;
+
+  return {
+    region: S.region, rd, terrain: S.terrain, floors: S.floors, plot: S.plot,
+    budget: S.budget, bedrooms: S.bedrooms, kitchen: S.kitchen, toilet: S.toilet,
+    pig: S.pig, chicken: S.chicken, storage: S.storage, outhouse: S.outhouse,
+    hall: S.hall, yard: S.yard, priority: S.priority,
+    HW: dims[0], HD: dims[1], base, totalArea, annexArea,
+    rr, sr, fr, tr,
+    costs: {
+      ['主体工程（含' + sr.struct + '/基础/楼板/屋顶）']: structure,
+      '室内简装（地砖/涂料/门窗/洁具）': finish,
+      '附属用房（圈舍/杂物/旱厕）': annexCost,
+      '院墙·大门·院坝硬化': wallYard,
+      '排水散水·化粪池（按降雨加强）': drain,
+      '预备费 5%': reserve
+    },
+    totalCost
+  };
+}
+
+/* ================= 7. SVG 平面图 ================= */
+
+const ROOM_FILL = {
+  bed: '#f7e8d4', hall: '#fdf3d9', kitchen: '#fbe0cd', bath: '#dcebf3',
+  stair: '#e9e3d6', dine: '#f4ecdc', store: '#ece7db', balcony: '#e7f0e8',
+  terrace: '#eef5ea', misc: '#f2efe6'
+};
+
+/* 行→单元格网格；u 为宽度权重，行高 f 为占房屋进深比例 */
+function floorGrid(floor, m) {
+  if (floor === 1) {
+    const ku = m.kitchen === 'big' ? [2.6, 2.2, 1.3, 1.5, 1.2, 1.2]
+      : m.kitchen === 'small' ? [1.7, 2.4, 1.3, 1.6, 1.5, 1.5]
+        : [2.1, 2.3, 1.3, 1.6, 1.3, 1.4];
+    const kLabel = m.kitchen === 'big' ? '厨房·柴火灶' : m.kitchen === 'small' ? '小厨房' : '厨房';
+    const bathLabel = m.toilet === 'outhouse' ? '盥洗室' : '卫生间';
+    const rightBack = m.bedrooms >= 2 ? ['次卧', 'bed'] : (m.storage ? ['杂物间', 'store'] : ['书房', 'misc']);
+    return [
+      { f: 0.54, cells: [
+        { t: '老人房', s: '朝南', u: 3, c: 'bed' },
+        { t: m.hall ? '堂屋' : '客厅', s: '待客摆席', u: 4, c: 'hall' },
+        { t: rightBack[0], u: 3, c: rightBack[1] }
+      ]},
+      { f: 0.46, cells: [
+        { t: kLabel, u: ku[0], c: 'kitchen' },
+        { t: '餐厅', u: ku[1], c: 'dine' },
+        { t: m.floors === 1 ? '楼梯位(预留)' : '楼梯', u: ku[2], c: 'stair' },
+        { t: bathLabel, u: ku[3], c: 'bath' },
+        { t: '玄关', u: ku[4], c: 'misc' },
+        { t: '储物', u: ku[5], c: 'store' }
+      ]}
+    ];
+  }
+  if (floor === 2) {
+    /* 一层已放 老人房+次卧 共2间，楼上标间数 = 卧室数-2，至少排2个开间，多余标为客房 */
+    const labeled = Math.max(0, m.bedrooms - 2);
+    const n = Math.min(Math.max(labeled, 2), 4);
+    const back = [];
+    for (let i = 0; i < n; i++) {
+      back.push({ t: i < labeled ? '卧室' + (i + 3) : '客房' + (i - labeled + 1), u: 10 / n, c: 'bed' });
+    }
+    return [
+      { f: 0.58, cells: back },
+      { f: 0.42, cells: [
+        { t: '起居小厅', u: 3.4, c: 'hall' },
+        { t: '楼梯', u: 1.3, c: 'stair' },
+        { t: '卫生间', u: 1.6, c: 'bath' },
+        { t: '储物', u: 1.8, c: 'store' },
+        { t: '阳台', u: 1.9, c: 'balcony' }
+      ]}
+    ];
+  }
+  /* 三层：卧室超过6间时楼上再加客房，其余储藏 + 大晒台 */
+  const extra = Math.max(0, m.bedrooms - 6);
+  const back = [];
+  for (let i = 0; i < extra; i++) back.push({ t: '客房' + (i + 3), u: 3, c: 'bed' });
+  back.push({ t: '储藏间', u: 10 - extra * 3, c: 'store' });
+  return [
+    { f: 0.5, cells: back },
+    { f: 0.5, cells: [
+      { t: '楼梯', u: 1.3, c: 'stair' },
+      { t: '大晒台（晒粮·晾衣）', u: 8.7, c: 'terrace' }
+    ]}
+  ];
+}
+
+function renderPlan(m, floor) {
+  const withYard = floor === 1;
+  const HX = 150, HW = 420, HD = withYard ? 210 : 260;
+  const HY = withYard ? 120 : 140;
+  const vbH = withYard ? 600 : 470;
+  let s = '<svg viewBox="0 0 720 ' + vbH + '" class="plan-svg" role="img" aria-label="' + floor + '层平面图">';
+  s += '<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">' +
+       '<line x1="0" y1="0" x2="0" y2="8" stroke="#b9a98c" stroke-width="1.5"/></pattern></defs>';
+
+  /* 指北针 */
+  s += '<g transform="translate(56,64)"><circle r="24" fill="#fffdf8" stroke="#8a7a5e"/>' +
+       '<polygon points="0,-15 6,8 0,3 -6,8" fill="#b4482e"/><text y="-30" text-anchor="middle" font-size="15" fill="#5a4d38" font-weight="700">北</text></g>';
+
+  /* 尺寸标注：面宽 */
+  s += '<line x1="' + HX + '" y1="' + (HY - 26) + '" x2="' + (HX + HW) + '" y2="' + (HY - 26) + '" stroke="#8a7a5e" stroke-width="1.2"/>' +
+       '<line x1="' + HX + '" y1="' + (HY - 31) + '" x2="' + HX + '" y2="' + (HY - 21) + '" stroke="#8a7a5e"/>' +
+       '<line x1="' + (HX + HW) + '" y1="' + (HY - 31) + '" x2="' + (HX + HW) + '" y2="' + (HY - 21) + '" stroke="#8a7a5e"/>' +
+       '<text x="' + (HX + HW / 2) + '" y="' + (HY - 32) + '" text-anchor="middle" font-size="15" fill="#5a4d38">面宽 ' + m.HW + ' m</text>';
+  /* 进深 */
+  s += '<line x1="' + (HX - 24) + '" y1="' + HY + '" x2="' + (HX - 24) + '" y2="' + (HY + HD) + '" stroke="#8a7a5e" stroke-width="1.2"/>' +
+       '<line x1="' + (HX - 29) + '" y1="' + HY + '" x2="' + (HX - 19) + '" y2="' + HY + '" stroke="#8a7a5e"/>' +
+       '<line x1="' + (HX - 29) + '" y1="' + (HY + HD) + '" x2="' + (HX - 19) + '" y2="' + (HY + HD) + '" stroke="#8a7a5e"/>' +
+       '<text x="' + (HX - 34) + '" y="' + (HY + HD / 2) + '" text-anchor="middle" font-size="15" fill="#5a4d38" transform="rotate(-90 ' + (HX - 34) + ' ' + (HY + HD / 2) + ')">进深 ' + m.HD + ' m</text>';
+
+  /* 一层：后院附属棚圈（下风向，距主房≥6m） */
+  if (floor === 1) {
+    const annex = [];
+    if (m.pig) annex.push({ t: '猪圈 9㎡', w: 110 });
+    if (m.chicken) annex.push({ t: '鸡圈 5㎡', w: 84 });
+    if (m.storage) annex.push({ t: '杂物间 8㎡', w: 100 });
+    if (m.outhouse && m.toilet !== 'indoor') annex.push({ t: '旱厕 4㎡', w: 70 });
+    const ay = HY - 78, ah = 44;
+    s += '<text x="' + HX + '" y="' + (ay - 8) + '" font-size="14" fill="#7a5a35">后院 · 附属棚圈（位于下风向/侧院，与主房保持卫生距离）</text>';
+    let ax = HX;
+    annex.forEach(a => {
+      s += '<rect x="' + ax + '" y="' + ay + '" width="' + a.w + '" height="' + ah + '" fill="#e7dcc8" stroke="#8f7a55" stroke-width="1.6" stroke-dasharray="5 3"/>' +
+           '<text x="' + (ax + a.w / 2) + '" y="' + (ay + ah / 2 + 5) + '" text-anchor="middle" font-size="13.5" fill="#5f4a2c">' + a.t + '</text>';
+      ax += a.w + 10;
+    });
+    s += '<line x1="' + (HX + HW - 90) + '" y1="' + (ay + ah) + '" x2="' + (HX + HW - 90) + '" y2="' + HY + '" stroke="#b4482e" stroke-width="1.3" stroke-dasharray="4 3"/>' +
+         '<text x="' + (HX + HW - 80) + '" y="' + ((ay + ah + HY) / 2) + '" font-size="12.5" fill="#b4482e">间距≥6m</text>';
+  }
+
+  /* 房间网格 */
+  const grid = floorGrid(floor, m);
+  let y = HY;
+  grid.forEach(row => {
+    const rh = HD * row.f;
+    const totalU = row.cells.reduce((a, c) => a + c.u, 0);
+    let x = HX;
+    row.cells.forEach(cell => {
+      const cw = HW * cell.u / totalU;
+      const areaM = (m.HW * cell.u / totalU * m.HD * row.f).toFixed(1);
+      s += '<rect x="' + x + '" y="' + y + '" width="' + cw + '" height="' + rh + '" fill="' + ROOM_FILL[cell.c] + '" stroke="#9c8c6e" stroke-width="1.6"/>';
+      if (cell.c === 'stair') s += '<rect x="' + (x + 6) + '" y="' + (y + 6) + '" width="' + (cw - 12) + '" height="' + (rh - 12) + '" fill="url(#hatch)" opacity="0.7"/>';
+      s += '<text x="' + (x + cw / 2) + '" y="' + (y + rh / 2 - 2) + '" text-anchor="middle" font-size="' + (cell.t.length > 5 ? 13.5 : 16) + '" font-weight="700" fill="#3a3125">' + cell.t + '</text>' +
+           '<text x="' + (x + cw / 2) + '" y="' + (y + rh / 2 + 17) + '" text-anchor="middle" font-size="12" fill="#8a7a5e">' + areaM + '㎡' + (cell.s ? ' · ' + cell.s : '') + '</text>';
+      x += cw;
+    });
+    y += rh;
+  });
+
+  /* 外墙（加粗）+ 大门（南墙居中） */
+  s += '<rect x="' + HX + '" y="' + HY + '" width="' + HW + '" height="' + HD + '" fill="none" stroke="#33291d" stroke-width="6"/>';
+  const doorW = 30, dx = HX + HW / 2 - doorW / 2;
+  s += '<rect x="' + dx + '" y="' + (HY + HD - 4) + '" width="' + doorW + '" height="8" fill="#faf5ec"/>' +
+       '<path d="M' + dx + ' ' + (HY + HD) + ' A ' + doorW + ' ' + doorW + ' 0 0 1 ' + (dx + doorW) + ' ' + (HY + HD) + '" fill="none" stroke="#b4482e" stroke-width="1.4"/>' +
+       '<text x="' + (HX + HW / 2) + '" y="' + (HY + HD - 10) + '" text-anchor="middle" font-size="13" fill="#b4482e" font-weight="700">入户大门</text>';
+  /* 窗洞示意 */
+  [[HX, HY + HD / 2, -1], [HX + HW, HY + HD / 2, 1], [HX + 70, HY, 0], [HX + HW - 70, HY, 0]].forEach(w => {
+    if (w[2] === -1) s += '<rect x="' + (w[0] - 3) + '" y="' + (w[1] - 22) + '" width="7" height="44" fill="#bcd6e6"/>';
+    if (w[2] === 1) s += '<rect x="' + (w[0] - 4) + '" y="' + (w[1] - 22) + '" width="7" height="44" fill="#bcd6e6"/>';
+    if (w[2] === 0) s += '<rect x="' + (w[0] - 24) + '" y="' + (w[1] - 3) + '" width="48" height="7" fill="#bcd6e6"/>';
+  });
+
+  /* 一层：前院 */
+  if (withYard) {
+    const yy0 = HY + HD + 26, yy1 = vbH - 52;
+    s += '<rect x="' + HX + '" y="' + yy0 + '" width="' + HW + '" height="' + (yy1 - yy0) + '" fill="#f3ecda" stroke="#b7a47e" stroke-width="1.6" stroke-dasharray="8 5"/>' +
+         '<text x="' + (HX + HW / 2) + '" y="' + (yy0 + 40) + '" text-anchor="middle" font-size="17" font-weight="700" fill="#7a5a35">' + (m.yard ? '前院 / 院坝（晒谷·停车·摆酒席）' : '房前通道') + '</text>';
+    /* 院门 */
+    const gx = HX + HW / 2;
+    s += '<rect x="' + (gx - 26) + '" y="' + (yy1 - 9) + '" width="10" height="14" fill="#8f5a3c"/>' +
+         '<rect x="' + (gx + 16) + '" y="' + (yy1 - 9) + '" width="10" height="14" fill="#8f5a3c"/>' +
+         '<line x1="' + (gx - 21) + '" y1="' + (yy1 - 8) + '" x2="' + (gx + 21) + '" y2="' + (yy1 - 8) + '" stroke="#8f5a3c" stroke-width="2"/>' +
+         '<text x="' + gx + '" y="' + (yy1 + 24) + '" text-anchor="middle" font-size="13" fill="#5f4a2c">院门（朝外开）</text>';
+  }
+
+  s += '<text x="360" y="' + (vbH - 6) + '" text-anchor="middle" font-size="14" fill="#8a7a5e">' +
+       ['一层平面图（主房 ' + m.base + '㎡）', '二层平面图', '三层平面图（坡屋顶下可用作储藏/客房）'][floor - 1] + '　比例示意 · 非正式施工图</text>';
+  s += '</svg>';
+  return s;
+}
+
+/* ================= 8. SVG 立面示意（降雨/抗震/冻土直接作用） ================= */
+
+function renderElevation(m) {
+  /* 三层高 + 陡坡屋顶时，地坪整体下移，保证屋脊不超出画布 */
+  const groundY = 300 + (m.floors - 1) * 40, x0 = 190, x1 = 530, floorH = 78;
+  const topY = groundY - floorH * m.floors;
+  const ang = m.rr.slope;
+  const rise = Math.tan(ang * Math.PI / 180) * (x1 - x0) / 2;
+  const eavePx = 14 + m.rr.eave * 0.35;
+  const fd = Math.max(m.fr.depth, m.terrain === '山区' ? 1.0 : 0.6);
+  const fdPx = fd * 34;
+
+  let s = '<svg viewBox="0 0 720 470" class="plan-svg" role="img" aria-label="立面示意图">';
+  /* 地坪 */
+  s += '<line x1="60" y1="' + groundY + '" x2="660" y2="' + groundY + '" stroke="#6b5d44" stroke-width="3"/>' +
+       '<text x="66" y="' + (groundY - 8) + '" font-size="13" fill="#6b5d44">室外地坪（抬高' + (m.rd.rain > 1200 ? 30 : 15) + 'cm防潮）</text>';
+
+  /* 基础 */
+  s += '<rect x="' + (x0 + 14) + '" y="' + groundY + '" width="' + (x1 - x0 - 28) + '" height="' + fdPx + '" fill="#d8cdb6" stroke="#8a7a5e" stroke-width="1.5"/>' +
+       '<text x="' + (x1 + 26) + '" y="' + (groundY + fdPx / 2 + 5) + '" font-size="13.5" fill="#5a4d38">基础埋深 ' + fd.toFixed(2) + 'm</text>';
+  for (let i = 0; i < 6; i++)
+    s += '<line x1="' + (x0 + 30 + i * 48) + '" y1="' + groundY + '" x2="' + (x0 + 40 + i * 48) + '" y2="' + (groundY + fdPx) + '" stroke="#b8a887" stroke-width="1"/>';
+
+  /* 楼层墙体 */
+  s += '<rect x="' + x0 + '" y="' + topY + '" width="' + (x1 - x0) + '" height="' + (groundY - topY) + '" fill="#f6ecdc" stroke="#33291d" stroke-width="4"/>';
+  for (let f = 1; f < m.floors; f++) {
+    const ly = groundY - floorH * f;
+    s += '<line x1="' + x0 + '" y1="' + ly + '" x2="' + x1 + '" y2="' + ly + '" stroke="#33291d" stroke-width="3"/>';
+  }
+  /* 圈梁（每层顶部红线） */
+  for (let f = 1; f <= m.floors; f++) {
+    const ly = groundY - floorH * f + 6;
+    s += '<line x1="' + x0 + '" y1="' + ly + '" x2="' + x1 + '" y2="' + ly + '" stroke="#b4482e" stroke-width="2" stroke-dasharray="7 4"/>';
+  }
+  /* 构造柱 */
+  if (m.sr.col) {
+    [x0, x1 - 12].forEach(cx => {
+      for (let f = 0; f < m.floors; f++) {
+        s += '<rect x="' + cx + '" y="' + (groundY - floorH * (f + 1) + 10) + '" width="12" height="' + (floorH - 14) + '" fill="#b4482e"/>';
+      }
+    });
+    s += '<text x="' + (x0 - 10) + '" y="' + (topY - 26) + '" font-size="13" fill="#b4482e" font-weight="700">构造柱+圈梁（' + m.rd.seis + '度抗震）</text>';
+  }
+
+  /* 门窗（正立面） */
+  s += '<rect x="' + ((x0 + x1) / 2 - 15) + '" y="' + (groundY - 46) + '" width="30" height="46" fill="#8f5a3c"/><line x1="' + ((x0 + x1) / 2) + '" y1="' + (groundY - 46) + '" x2="' + ((x0 + x1) / 2) + '" y2="' + groundY + '" stroke="#6b432c"/>';
+  for (let f = 0; f < m.floors; f++) {
+    const wy = groundY - floorH * f - 52;
+    [x0 + 46, x1 - 82].forEach(wx => {
+      s += '<rect x="' + wx + '" y="' + wy + '" width="36" height="32" fill="#cfe1ec" stroke="#5f7f96" stroke-width="1.6"/>';
+    });
+  }
+
+  /* 屋顶 */
+  if (ang <= 6) {
+    s += '<rect x="' + (x0 - 10) + '" y="' + (topY - 12) + '" width="' + (x1 - x0 + 20) + '" height="12" fill="#9c8c6e" stroke="#33291d" stroke-width="2"/>' +
+         '<text x="' + (x1 + 26) + '" y="' + (topY - 2) + '" font-size="13.5" fill="#5a4d38">平顶' + ang + '°，可晒粮</text>';
+  } else {
+    const lx = x0 - eavePx, rx = x1 + eavePx, ry = topY - 4, cx = (x0 + x1) / 2, cy = topY - 4 - rise;
+    s += '<polygon points="' + lx + ',' + ry + ' ' + cx + ',' + cy + ' ' + rx + ',' + ry + '" fill="#a0522d" stroke="#33291d" stroke-width="2.5"/>' +
+         '<line x1="' + lx + '" y1="' + ry + '" x2="' + rx + '" y2="' + ry + '" stroke="#33291d" stroke-width="3"/>';
+    s += '<text x="' + (cx) + '" y="' + (cy - 10) + '" text-anchor="middle" font-size="14" fill="#b4482e" font-weight="700">坡屋顶 ' + ang + '°</text>' +
+         '<text x="' + (x1 + 26) + '" y="' + (ry - rise / 2) + '" font-size="13" fill="#5a4d38">挑檐 ' + m.rr.eave + 'cm</text>';
+  }
+  /* 散水/排水沟 */
+  s += '<rect x="' + (x0 - 26) + '" y="' + (groundY + 2) + '" width="34" height="7" fill="#9aa7ad"/>' +
+       '<rect x="' + (x1 - 8) + '" y="' + (groundY + 2) + '" width="34" height="7" fill="#9aa7ad"/>' +
+       '<text x="' + (x0 - 30) + '" y="' + (groundY + 26) + '" font-size="12.5" fill="#5f6d73">散水' + (m.rd.rain > 800 ? '80cm+排水沟' : '') + '</text>';
+
+  s += '<text x="360" y="408" text-anchor="middle" font-size="14" fill="#8a7a5e">正立面示意 · 降雨 ' + m.rd.rain + 'mm / 抗震 ' + m.rd.seis + '度 / ' + m.rr.struct + '</text>';
+  s += '</svg>';
+  return s;
+}
+
+/* ================= 9. 预算 + 说明 + 概要 ================= */
+
+function renderBudget(m) {
+  const items = Object.entries(m.costs);
+  const max = Math.max.apply(null, items.map(i => i[1]).concat([m.budget * 10000]));
+  let html = '<div class="budget-total"><div><b>' + (m.totalCost / 10000).toFixed(1) + '</b> 万元<span>估算总造价</span></div>' +
+    '<div class="budget-pair">预算 ' + m.budget + ' 万　总建面 ' + m.totalArea + ' ㎡　约 ' +
+    Math.round(m.totalCost / m.totalArea) + ' 元/㎡</div></div>';
+  html += '<div class="budget-bars">';
+  items.forEach(([name, val]) => {
+    html += '<div class="bar-row"><span class="bar-label">' + name + '</span>' +
+      '<div class="bar-track"><i style="width:' + Math.max(4, Math.round(val / max * 100)) + '%"></i></div>' +
+      '<span class="bar-num">' + (val / 10000).toFixed(1) + '万</span></div>';
+  });
+  html += '</div>';
+  const diff = m.budget * 10000 - m.totalCost;
+  if (diff >= 0) {
+    html += '<div class="budget-ok">在预算内，还剩约 ' + (diff / 10000).toFixed(1) + ' 万元机动钱，建议留作家具家电。</div>';
+  } else {
+    html += '<div class="budget-warn">超出预算约 ' + (-diff / 10000).toFixed(1) + ' 万元。建议：' +
+      (m.floors >= 3 ? '三层先缓建、预留钢筋接口；' : '') + '装修分两期；附属棚圈可先搭简易棚。</div>';
+  }
+  return html;
+}
+
+function renderNotes(m) {
+  const n = [];
+  n.push(['降雨 ' + m.rd.rain + 'mm（' + m.rr.tier + '）',
+    '屋顶用' + m.rr.roof + '、坡度 ' + m.rr.slope + '°，挑檐出 ' + m.rr.eave + 'cm；' + m.rr.drain + '。']);
+  n.push(['抗震 ' + m.rd.seis + ' 度',
+    '采用' + m.sr.struct + '，' + m.sr.measure + '；四大角及楼梯间重点加强，不可随意拆墙打洞。']);
+  n.push(['地基与土质',
+    m.fr.text + '。' + m.rd.soil + '，基槽必须挖到老土层，雨季施工要防基坑泡水。']);
+  n.push([TERRAIN_TXT[m.terrain] + '场地', m.tr.text + '。']);
+  if (m.pig || m.chicken) {
+    n.push(['圈舍卫生', '猪圈鸡圈放后院下风向，与主房保持 6m 以上距离；硬化地面、设化粪池/三级沉淀池，定期清掏还田。']);
+  }
+  if (m.toilet !== 'outhouse') {
+    n.push(['室内给排水', '室内卫生间做三级化粪池，生活污水与雨水分开排；老人常用卫生间地面防滑、装扶手、用淋浴凳。']);
+  }
+  if (m.priority === 'elder') {
+    n.push(['适老化设计', '老人房放一层朝南，带卫生间或就近如厕；全屋无门槛、坡道代替台阶、楼梯双侧扶手、夜灯感应。']);
+  }
+  if (m.priority === 'family') {
+    n.push(['春节团聚模式', '卧室总数 ' + m.bedrooms + ' 间，二层做大起居厅，三层留客房/晒台；院坝可摆 4~6 桌酒席。']);
+  }
+  if (m.kitchen === 'big') {
+    n.push(['柴火灶', '大厨房双灶布置（柴灶+煤气灶），柴灶旁设烟囱高出屋面 50cm，柴房与灶间用砖墙分隔防火。']);
+  }
+  return '<ul class="notes-list">' + n.map(x =>
+    '<li><b>' + x[0] + '</b><p>' + x[1] + '</p></li>').join('') +
+    '<li class="note-disclaimer"><b>重要提示</b><p>本图为电话沟通后的<b>初步意向方案</b>，用于造价摸底和家庭商量；正式开工前必须请持证设计师出施工图，并做地质勘探、办理建房审批。</p></li></ul>';
+}
+
+function renderSummary(m) {
+  const chips = [
+    m.region + '·' + TERRAIN_TXT[m.terrain],
+    m.floors + '层',
+    '主房 ' + m.HW + '×' + m.HD + 'm/' + m.base + '㎡',
+    '总建面约' + m.totalArea + '㎡',
+    m.bedrooms + '卧',
+    m.rr.roof + m.rr.slope + '°',
+    '抗震' + m.rd.seis + '度',
+    m.sr.struct,
+    '预算' + m.budget + '万'
+  ];
+  els.summaryStrip.innerHTML = chips.map(c => '<span class="sum-chip">' + c + '</span>').join('');
+}
+
+/* ================= 10. 设计输出装配 + Tab ================= */
+
+function renderDesign(m) {
+  renderSummary(m);
+  /* 楼层 tab */
+  els.planTabs.innerHTML = '';
+  for (let f = 1; f <= m.floors; f++) {
+    const b = document.createElement('button');
+    b.className = 'tab-btn' + (f === 1 ? ' active' : '');
+    b.textContent = f + ' 层平面图';
+    b.onclick = () => {
+      els.planTabs.querySelectorAll('.tab-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      els.planPanel.innerHTML = renderPlan(m, f);
+    };
+    els.planTabs.appendChild(b);
+  }
+  els.planPanel.innerHTML = renderPlan(m, 1);
+  $('panelElevation').innerHTML = renderElevation(m);
+  $('panelBudget').innerHTML = renderBudget(m);
+  $('panelNotes').innerHTML = renderNotes(m);
+
+  [['tabPlan', 'panelPlan'], ['tabElevation', 'panelElevation'],
+   ['tabBudget', 'panelBudget'], ['tabNotes', 'panelNotes']].forEach(([tb, pn]) => {
+    $(tb).onclick = () => {
+      document.querySelectorAll('.design-tab-btn').forEach(x => x.classList.remove('active'));
+      document.querySelectorAll('.design-panel').forEach(x => x.classList.add('hidden'));
+      $(tb).classList.add('active');
+      $(pn).classList.remove('hidden');
+    };
+  });
+  document.querySelectorAll('.design-tab-btn').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.design-panel').forEach(x => x.classList.add('hidden'));
+  $('tabPlan').classList.add('active');
+  $('panelPlan').classList.remove('hidden');
+}
+
+/* ================= 11. 语音：TTS / ASR ================= */
+
+function speak(text) {
+  if (!('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text.replace(/[“”]/g, ''));
+    u.lang = 'zh-CN';
+    u.rate = 0.92;
+    u.pitch = 1.05;
+    const voices = window.speechSynthesis.getVoices();
+    const zh = voices.find(v => /zh|Chinese|中文|普通话/i.test(v.lang + v.name));
+    if (zh) u.voice = zh;
+    window.speechSynthesis.speak(u);
+  } catch (e) {}
+}
+function stopSpeak() {
+  if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+}
+
+function initRecognition() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    els.micBtn.classList.add('disabled');
+    els.micBtn.title = '当前浏览器不支持语音识别，可用打字或点选回答';
+    els.speechStatus.textContent = '本机浏览器不支持语音识别，演示可点选/打字；正式版走电话线路+方言ASR';
+    return;
+  }
+  recognition = new SR();
+  recognition.lang = 'zh-CN';
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  recognition.onresult = e => {
+    const said = e.results[0][0].transcript;
+    handleAnswer(said);
+  };
+  recognition.onend = () => {
+    recognizing = false;
+    els.micBtn.classList.remove('recording');
+  };
+  recognition.onerror = () => {
+    recognizing = false;
+    els.micBtn.classList.remove('recording');
+  };
+  els.micBtn.onclick = () => {
+    if (!inCall) return;
+    if (recognizing) { recognition.stop(); return; }
+    try { recognition.start(); recognizing = true; els.micBtn.classList.add('recording'); } catch (e) {}
+  };
+}
+
+/* ================= 12. 初始化 ================= */
+
+/* ================= 13. 大模型设置弹窗 + 模式切换 ================= */
+
+function openSettings(note) {
+  const cfg = LLM.loadCfg();
+  els.llmPreset.innerHTML = LLM.PRESETS.map((p, i) => '<option value="' + i + '">' + p.name + '</option>').join('');
+  /* 匹配当前配置对应的预设（代理/直连分别匹配 base） */
+  let idx = LLM.PRESETS.findIndex(p => !!p.viaProxy === !!cfg.viaProxy && p.base === cfg.baseUrl);
+  if (idx === -1) idx = cfg.viaProxy ? 0 : 2;
+  els.llmPreset.value = String(idx);
+  fillModelDatalist(idx);
+  els.llmBase.value = cfg.baseUrl;
+  els.llmModel.value = cfg.model;
+  els.llmKey.value = cfg.apiKey;
+  applyPresetUi(idx, false);
+  els.llmTestResult.textContent = note || '';
+  els.llmTestResult.className = 'test-result' + (note ? ' warn' : '');
+  els.settingsModal.classList.remove('hidden');
+}
+function closeSettings() { els.settingsModal.classList.add('hidden'); }
+function fillModelDatalist(idx) {
+  els.modelList.innerHTML = LLM.PRESETS[idx].models.map(m => '<option value="' + m + '">').join('');
+}
+function applyPresetUi(idx, resetKey) {
+  const p = LLM.PRESETS[idx];
+  if (p.viaProxy) {
+    els.llmKeyLabel.textContent = '代理访问口令 APP_TOKEN（服务端没设口令就留空）';
+    els.llmKey.placeholder = '可选：与 Worker/Python 代理里的 APP_TOKEN 一致';
+  } else {
+    els.llmKeyLabel.textContent = 'API Key（只存在本机浏览器 localStorage，不写入代码、不上传）';
+    els.llmKey.placeholder = 'sk-...';
+  }
+  els.llmPresetHint.textContent = p.hint || '';
+  if (resetKey) els.llmKey.value = '';
+}
+function currentPreset() { return LLM.PRESETS[+els.llmPreset.value] || LLM.PRESETS[0]; }
+function formCfg() {
+  return {
+    baseUrl: els.llmBase.value.trim() || LLM.DEFAULT_BASE,
+    model: els.llmModel.value.trim() || LLM.DEFAULT_MODEL,
+    apiKey: els.llmKey.value.trim(),
+    viaProxy: !!currentPreset().viaProxy
+  };
+}
+function updateLlmDot() {
+  const on = LLM.configured();
+  els.llmDot.className = 'llm-dot ' + (on ? 'on' : 'off');
+  els.llmDot.title = on ? ('已配置：' + LLM.loadCfg().model) : (LLM.loadCfg().viaProxy ? '代理地址未配置好' : '未配置 Key');
+}
+function setMode(mode) {
+  aiMode = mode === 'ai';
+  els.modeAi.classList.toggle('active', aiMode);
+  els.modeScript.classList.toggle('active', !aiMode);
+  if (aiMode) {
+    els.modeHint.textContent = LLM.configured()
+      ? 'AI 模式：小居由真实大模型驱动，能自由听懂方言、临场追问'
+      : ('AI 模式未就绪：请先点右上角“大模型设置”' + (LLM.loadCfg().viaProxy ? '填好代理地址' : '填 Key 或改选代理预设'));
+    els.modeHint.className = 'mode-hint ' + (LLM.configured() ? 'ok' : 'warn');
+  } else {
+    els.modeHint.textContent = '演示话术模式：固定剧本，无需联网和 Key，路演最稳';
+    els.modeHint.className = 'mode-hint';
+  }
+}
+
+function initSettings() {
+  updateLlmDot();
+  setMode('script');
+
+  els.settingsBtn.onclick = () => openSettings();
+  els.settingsClose.onclick = closeSettings;
+  els.settingsModal.addEventListener('click', e => { if (e.target === els.settingsModal) closeSettings(); });
+  els.llmPreset.onchange = () => {
+    const idx = +els.llmPreset.value;
+    const p = LLM.PRESETS[idx];
+    els.llmBase.value = p.base;
+    els.llmModel.value = p.models[0];
+    fillModelDatalist(idx);
+    applyPresetUi(idx, true);
+    els.llmTestResult.textContent = '';
+  };
+  els.llmSave.onclick = () => {
+    LLM.saveCfg(formCfg());
+    updateLlmDot();
+    setMode(aiMode ? 'ai' : 'script');
+    els.llmTestResult.textContent = '已保存到本机浏览器。';
+    els.llmTestResult.className = 'test-result ok';
+    setTimeout(closeSettings, 700);
+  };
+  els.llmTest.onclick = async () => {
+    /* 测试前先暂存当前表单值 */
+    LLM.saveCfg(formCfg());
+    els.llmTestResult.textContent = '正在连接…';
+    els.llmTestResult.className = 'test-result';
+    try {
+      const reply = await LLM.testConnection();
+      els.llmTestResult.textContent = '连接成功，模型回复：' + reply;
+      els.llmTestResult.className = 'test-result ok';
+      updateLlmDot();
+    } catch (e) {
+      els.llmTestResult.textContent = '连接失败：' + e.message;
+      els.llmTestResult.className = 'test-result warn';
+    }
+  };
+  els.modeAi.onclick = () => {
+    if (!LLM.configured()) {
+      setMode('ai');
+      const cfg = LLM.loadCfg();
+      openSettings(cfg.viaProxy ? '先把代理地址换成你部署好的 Worker / 本地代理地址，再“测试连接”。'
+                                : '用 AI 模式前先填 API Key，或改用上面的 Worker 代理预设；填好保存后直接拨打。');
+      return;
+    }
+    setMode('ai');
+  };
+  els.modeScript.onclick = () => setMode('script');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  bindEls();
+  initSettings();
+  els.startCallBtn.onclick = startCall;
+  els.hangupBtn.onclick = hangup;
+  els.redialBtn.onclick = () => { hangup(); setTimeout(startCall, 150); };
+  els.printBtn.onclick = () => window.print();
+  els.sendBtn.onclick = () => {
+    const v = els.textInput.value;
+    els.textInput.value = '';
+    handleAnswer(v);
+  };
+  els.textInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') els.sendBtn.click();
+  });
+  initRecognition();
+  renderSlots();
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = () => {};
+  }
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+# 本地 `npx wrangler dev` 用的环境变量示例。
+# 复制为 .dev.vars 后填入真实值；.dev.vars 已在 .gitignore 中，不会被提交。
+# 线上请用：npx wrangler secret put DEEPSEEK_API_KEY
+DEEPSEEK_API_KEY=sk-在这里填你的DeepSeek密钥
+# 可选：前端访问代理的口令；不填则代理完全公开（不建议部署到公网）
+APP_TOKEN=

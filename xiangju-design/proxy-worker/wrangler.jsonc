@@ -1,0 +1,20 @@
+{
+  // 乡居设计通 · 大模型服务端代理
+  // 部署：npx wrangler deploy
+  // 密钥：npx wrangler secret put DEEPSEEK_API_KEY
+  // （可选访问口令）：npx wrangler secret put APP_TOKEN
+  "name": "xiangju-llm-proxy",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-12",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    // 上游模型服务（OpenAI 兼容），不带末尾斜杠
+    "UPSTREAM_URL": "https://api.deepseek.com",
+    // 若设置则强制使用该模型，防止代理被盗用刷其他贵模型；留空则透传前端指定模型
+    "FORCE_MODEL": "deepseek-chat"
+    // 允许调用的网页来源，逗号分隔；留空表示不校验来源（仅靠 APP_TOKEN 防刷）
+    // "ALLOWED_ORIGINS": "http://127.0.0.1:5500,null"
+  }
+}
